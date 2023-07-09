@@ -43,7 +43,6 @@ export class ProductListComponent implements OnInit {
       if(addedProduct)
         addedProduct.ammount +=1;
     }
-    console.log("add product"+cartProduct.ammount)
   }
   public removeProduct(cartProduct:CartProductI){
     console.log("remove product"+cartProduct.product.name)

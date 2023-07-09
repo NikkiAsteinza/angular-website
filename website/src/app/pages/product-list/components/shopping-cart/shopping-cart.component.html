@@ -3,6 +3,8 @@
 </button>
 <div *ngFor="let product of products">
     <div *ngIf="product.ammount > 0">
-        <app-cart-item [cartProduct]="product"></app-cart-item>
+        <app-cart-item [cartProduct]="product"
+        (onRemoveFromCartItem)="removeProductFromCart"
+        (onAddFromCartItem)="addProductFromCart"></app-cart-item>
     </div>
 </div>

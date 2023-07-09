@@ -1,5 +1,5 @@
-<div layout="row">
+<span>
     <button class="product__button product__button--remove" (click)="removeProduct()">-</button>
-    <p>0</p>
+    <span *ngIf="cartProduct" >{{cartProduct.ammount}}</span>
     <button class="product__button product__button--add" (click)="addProduct()">+</button>
-</div>
+</span>

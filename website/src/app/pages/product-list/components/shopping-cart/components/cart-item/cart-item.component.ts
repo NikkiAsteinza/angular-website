@@ -8,15 +8,21 @@ import { CartProductI } from 'src/app/core/interfaces/cart-product-interface';
 })
 export class CartItemComponent {
   @Input() public cartProduct?: CartProductI;
-  @Output() public onRemoveProductFromCart =  new EventEmitter<void>(); 
-  @Output() public onAddProductFromCart =  new EventEmitter<void>(); 
+  @Output() public onRemoveProductFromCartItem =  new EventEmitter<CartProductI>(); 
+  @Output() public onAddProductFromCartItem =  new EventEmitter<CartProductI>(); 
   ngOnInit(): void {
 
   }
   public addProduct(){
-    this.onAddProductFromCart.emit(); 
+    if(this.cartProduct){
+      console.log("add from cart: "+this.cartProduct.product.name);
+      this.onAddProductFromCartItem.emit(this.cartProduct); 
+    }
   }
   public removeProduct(){
-    this.onRemoveProductFromCart.emit(); 
+    if(this.cartProduct){
+      console.log("remove from cart: "+this.cartProduct.product.name);
+      this.onRemoveProductFromCartItem.emit(this.cartProduct); 
+    }
   }
 }

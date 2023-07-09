@@ -7,6 +7,9 @@
     >
     </app-product>
     <app-shopping-cart
-    [products] = "products">
+    [products] = "products"
+    (onAddProductFromCart)="addProduct($product)"
+    (onRemoveProductFromCart)="removeProduct($product)"
+    >
     </app-shopping-cart>
 </div>

@@ -13,7 +13,6 @@ export class ProductComponent implements OnInit {
 
   }
   public addProduct(){
-    console.log("add product")
     this.onAddProductFromList.emit(); 
   }
 }

@@ -1,5 +1,5 @@
 <div *ngIf="product" class="product">
-    <div layout="flex" [ngStyle]="{'background-color': (product.ammount > 0) ? '#73c7af' : 'white'}">
+    <div class="product__container" layout="flex" [ngStyle]="{'background-color': (product.ammount > 0) ? '#73c7af' : 'white'}">
         <div flex="80">
             <p class="product__name">{{product.product.name}}</p>
             <p class="product__description">{{product.product.description}}</p>

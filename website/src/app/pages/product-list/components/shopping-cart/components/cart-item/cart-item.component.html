@@ -2,8 +2,11 @@
 
     <div layout="row">
         <p class="product__name">{{cartProduct.product.name}}
-            <span>{{cartProduct.ammount}}</span>
-            <app-product-ammount (onAdd)="addProduct()" (onRemove)="removeProduct()"></app-product-ammount>
+            <app-product-ammount
+                [cartProduct]="cartProduct"
+                (onRemoveFromAmmount)="removeProduct()"
+                (onAddFromAmmount)="addProduct()"
+                ></app-product-ammount>
             <span>{{cartProduct.product.price}}</span>
         </p>
     </div>
