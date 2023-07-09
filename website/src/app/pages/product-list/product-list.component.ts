@@ -8,4 +8,7 @@ import { productData } from 'src/app/core/product-data';
 })
 export class ProductListComponent {
   public products = productData;
+  public removeProduct(id:string){
+    console.log("remove product"+id)
+  }
 }

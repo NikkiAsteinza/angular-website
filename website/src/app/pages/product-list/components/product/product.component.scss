@@ -1,0 +1,17 @@
+.product{
+    background-color: blanchedalmond;
+    padding:10px 20px;
+    margin-bottom: 15px;
+    &__name {
+        text-align: center;
+    }
+    &__button {
+        border:none;
+        padding:8px;
+
+        &--remove {
+            background-color: salmon;
+            font-weight: bold;
+        }
+    }
+}
