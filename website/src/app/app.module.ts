@@ -22,7 +22,7 @@ import { FooterComponent } from './core/components/footer/footer/footer.componen
     ProductListModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,22 +1,13 @@
-<div
-    *ngIf="product"
-    class="product"
->
-<a 
-    [ngStyle]="{'background-color': (product.ammount > 0) ? '#73c7af' : '#000000'}"
->
-    <div layout="row">
-        <p class="product__name">{{product.name}}</p>
-        <span [ngStyle]="{'opacity': (product.ammount > 0) ? 1 : 0}">{{product.ammount}}</span>
-    </div>
-    <p class="product__description">{{product.description}}</p>
-    <p class="product__price">{{product.price}}</p>
-
-<app-product-ammount
-        (onAdd)="addProduct()"
-        (onRemove)="removeProduct()"
-></app-product-ammount>
-
-</a>
-
+<div *ngIf="product" class="product">
+    <a layout="flex" [ngStyle]="{'background-color': (product.ammount > 0) ? '#73c7af' : 'white'}">
+        <div flex="60">
+            <p class="product__name">{{product.product.name}}</p>
+            <p class="product__description">{{product.product.description}}</p>
+            <p class="product__price">{{product.product.price}}€</p>
+        </div>
+        <div flex="40">
+            <img flex="100" src="https://www.gstatic.com/webp/gallery3/1.sm.png" class="product__image"/>
+            <app-product-ammount (onAdd)="addProduct()" (onRemove)="removeProduct()"></app-product-ammount>
+        </div>
+    </a>
 </div>

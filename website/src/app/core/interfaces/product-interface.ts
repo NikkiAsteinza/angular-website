@@ -7,7 +7,6 @@ export interface ProductI{
     image:string;
     id:string;
     stock:number;
-    ammount:number;
     // materials: ProductMaterial;
 }
 

@@ -1,7 +1,8 @@
 .product{
-    background-color: blanchedalmond;
     padding:10px 20px;
     margin-bottom: 15px;
+    border:1px solid #090909;
+    border-radius:2px;
     &__name {
         text-align: center;
     }
@@ -13,5 +14,9 @@
             background-color: salmon;
             font-weight: bold;
         }
+    }
+    &__image {
+        display: inline-block;
+        width:100%;
     }
 }

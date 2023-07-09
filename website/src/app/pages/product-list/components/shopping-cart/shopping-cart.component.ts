@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CartProductI } from 'src/app/core/interfaces/cart-product-interface';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent {
-
+  @Input() products = new Array<CartProductI>;
 }

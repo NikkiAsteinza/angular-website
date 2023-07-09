@@ -1,0 +1,13 @@
+<div
+    *ngIf="cartProduct"
+    class="cartProduct"
+>
+<a>
+    <div layout="row">
+        <p class="product__name">{{cartProduct.product.name}}</p>
+        <span>{{cartProduct.ammount}}</span>
+    </div>
+    <p class="product__price">{{cartProduct.product.price}}</p>
+</a>
+
+</div>
