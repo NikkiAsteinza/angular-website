@@ -4,6 +4,7 @@ import { ProductListComponent } from './product-list.component';
 import { ProductComponent } from './components/product/product.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ProductAmmountComponent } from './components/product/components/product-ammount/product-ammount.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart/shopping-cart.component';
 
 
 
@@ -11,7 +12,8 @@ import { ProductAmmountComponent } from './components/product/components/product
   declarations: [
     ProductListComponent,
     ProductComponent,
-    ProductAmmountComponent
+    ProductAmmountComponent,
+    ShoppingCartComponent
   ],
   imports: [
     CommonModule,
