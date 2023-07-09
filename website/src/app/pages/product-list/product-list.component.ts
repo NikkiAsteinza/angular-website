@@ -31,11 +31,15 @@ export class ProductListComponent implements OnInit {
     console.log("add product"+cartProduct.product.name)
     if(this.products.includes(cartProduct))
     {
-      this.products[Number(cartProduct.product.id)].ammount +=1;
+      const existingProduct = this.products.find(
+        product=>product.product.id === cartProduct.product.id);
+      if(existingProduct)
+        existingProduct.ammount +=1;
     }
     else{
       this.products.push(cartProduct);
-      const addedProduct = this.products.find(product=>product === cartProduct);
+      const addedProduct = this.products.find(
+        product=>product.product.id === cartProduct.product.id);
       if(addedProduct)
         addedProduct.ammount +=1;
     }
@@ -46,7 +50,8 @@ export class ProductListComponent implements OnInit {
     const productToRemove = this.products.find(product=>product === cartProduct);
 
     if (productToRemove && productToRemove.ammount == 1) {
-      const productToRemoveIndex = this.products.findIndex(selectedProduct=> selectedProduct.product.id === productToRemove.product.id);
+      const productToRemoveIndex = this.products.findIndex(
+        selectedProduct=> selectedProduct.product.id === productToRemove.product.id);
       this.products.splice(productToRemoveIndex, 1);
     }
     else if (productToRemove){

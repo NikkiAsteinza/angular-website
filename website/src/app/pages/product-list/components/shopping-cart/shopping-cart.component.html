@@ -1,9 +1,8 @@
 <button mat-icon-button="mat-icon-button" class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>shopping_cart</mat-icon>
 </button>
-<div>
-    <app-cart-item 
-        *ngFor="let product of products" [cartProduct]="product"
-    >
-    </app-cart-item>
+<div *ngFor="let product of products">
+    <div *ngIf="product.ammount > 0">
+        <app-cart-item [cartProduct]="product"></app-cart-item>
+    </div>
 </div>

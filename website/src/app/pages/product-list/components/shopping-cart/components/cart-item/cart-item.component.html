@@ -1,13 +1,11 @@
-<div
-    *ngIf="cartProduct"
-    class="cartProduct"
->
-<a>
+<div *ngIf="cartProduct" class="cartProduct">
+
     <div layout="row">
-        <p class="product__name">{{cartProduct.product.name}}</p>
-        <span>{{cartProduct.ammount}}</span>
+        <p class="product__name">{{cartProduct.product.name}}
+            <span>{{cartProduct.ammount}}</span>
+            <app-product-ammount (onAdd)="addProduct()" (onRemove)="removeProduct()"></app-product-ammount>
+            <span>{{cartProduct.product.price}}</span>
+        </p>
     </div>
-    <p class="product__price">{{cartProduct.product.price}}</p>
-</a>
 
 </div>

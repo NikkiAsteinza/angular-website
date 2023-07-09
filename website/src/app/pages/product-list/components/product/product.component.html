@@ -1,13 +1,13 @@
 <div *ngIf="product" class="product">
-    <a layout="flex" [ngStyle]="{'background-color': (product.ammount > 0) ? '#73c7af' : 'white'}">
+    <div layout="flex" [ngStyle]="{'background-color': (product.ammount > 0) ? '#73c7af' : 'white'}">
         <div flex="60">
             <p class="product__name">{{product.product.name}}</p>
             <p class="product__description">{{product.product.description}}</p>
             <p class="product__price">{{product.product.price}}€</p>
         </div>
         <div flex="40">
-            <img flex="100" src="https://www.gstatic.com/webp/gallery3/1.sm.png" class="product__image"/>
-            <app-product-ammount (onAdd)="addProduct()" (onRemove)="removeProduct()"></app-product-ammount>
+            <img flex="100" src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/0A475B34-4E78-40D8-9F30-46223B7D77E7/Derivates/E55C7EA4-0E60-403F-B5DC-75EA358197BD.jpg" class="product__image"/>
+            <button (onAdd)="addProduct()"> Add To cart</button>
         </div>
-    </a>
+    </div>
 </div>
