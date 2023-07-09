@@ -2,11 +2,21 @@
     *ngIf="product"
     class="product"
 >
-    <p class="product__name">{{product.name}}</p>
+<a 
+    [ngStyle]="{'background-color': (product.ammount > 0) ? '#73c7af' : '#000000'}"
+>
+    <div layout="row">
+        <p class="product__name">{{product.name}}</p>
+        <span [ngStyle]="{'opacity': (product.ammount > 0) ? 1 : 0}">{{product.ammount}}</span>
+    </div>
     <p class="product__description">{{product.description}}</p>
     <p class="product__price">{{product.price}}</p>
-    <button
-        class="product__button product__button--remove"
-        (click)="removeProduct()"
-    >Remove</button>
+
+<app-product-ammount
+        (onAdd)="addProduct()"
+        (onRemove)="removeProduct()"
+></app-product-ammount>
+
+</a>
+
 </div>

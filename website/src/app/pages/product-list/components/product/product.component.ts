@@ -8,11 +8,15 @@ import { ProductI } from 'src/app/core/product-interface';
 })
 export class ProductComponent implements OnInit {
   @Input() public product?: ProductI;
-  @Output() public onRemoveProduct =  new EventEmitter<void>() // Podemos no pasarle nada, sabe de donde viene el uotput , el padre
+  @Output() public onRemoveProduct =  new EventEmitter<void>(); // Podemos no pasarle nada, sabe de donde viene el uotput , el padre
+  @Output() public onAddProduct =  new EventEmitter<void>(); 
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
+
   }
   public removeProduct(){
     this.onRemoveProduct.emit(); // Hay que emitir al padre
+  }
+  public addProduct(){
+    this.onAddProduct.emit(); 
   }
 }

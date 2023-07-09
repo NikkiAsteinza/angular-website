@@ -2,10 +2,12 @@ export interface ProductI{
     createdAt?: string; // Esto es opcional
     name:string;
     // color:string;
-    price:string;
+    price:number;
     description:string;
-    // image:string;
+    image:string;
     id:string;
+    stock:number;
+    ammount:number;
     // materials: ProductMaterial;
 }
 
