@@ -1,8 +1,10 @@
 <header>
   <mat-toolbar>
-    <a layout="row">
+    <a class="title" layout="row"
+      [routerLink]="['home']" 
+    >
       <mat-icon>cake</mat-icon>
-      <h1 class="title">Parte y reparte</h1>
+      <h1>Parte y reparte</h1>
     </a>
     <nav layout="row">
       <li class="menu__item"><a [routerLink]="['products-list']" class="menu__item_link mat-typography">Carta</a></li>

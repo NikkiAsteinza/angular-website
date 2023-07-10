@@ -11,6 +11,14 @@ mat-toolbar {
 
 .title {
     margin: 0 10px;
+    text-decoration: none;
+    color:#222;
+    display: flex;
+    height:50px;
+    line-height: 50px;
+    h1{
+        
+    }
 }
 
 .menu {
