@@ -17,4 +17,6 @@ import { ProductComponent } from '../product/product.component';
   //   ProductComponent
   // ]
 })
-export class ProductModule { }
+export class ProductModule {
+
+ }

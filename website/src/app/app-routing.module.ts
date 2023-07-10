@@ -6,19 +6,20 @@ const routes: Routes = [
   {
     path: '',
     // Redirigir a una ruta especifica cuando nuestro path coincide con la ruta
-    redirectTo: 'home',
+    // redirectTo: 'home',
+    loadChildren: ()=> import('./pages/home/home.module').then(m =>m.HomeModule),
     //Por defecto es prefix, solo si empieza para lo que empieza
     // El prefxi no se puede utilizar con el path vacio porque el path vacio siempre está
     //Todas las rutas coincidirán
     pathMatch: 'full'
 
   },
-  {
-    path: 'home',
-    // component: HomeComponent
-    // Permite cargar un módulo bajo demanda (url)
-    loadChildren: ()=> import('./pages/home/home.module').then(m =>m.HomeModule)
-  },
+  // {
+  //   path: 'home',
+  //   // component: HomeComponent
+  //   // Permite cargar un módulo bajo demanda (url)
+  //   loadChildren: ()=> import('./pages/home/home.module').then(m =>m.HomeModule)
+  // },
   {
     path: 'products-list',
     // component: ProductListComponent
@@ -40,7 +41,7 @@ const routes: Routes = [
     loadChildren: ()=> import('./pages/contact/contact.module').then(m =>m.ContactModule)
   },
   {
-    path: 'product',
+    path: 'product/:id',
     // component: ProductComponent
     // Para lazy load pero require de subrouting para indicar qué cargar de ese módulo.
     loadChildren: ()=> import('./pages/product/product.module').then(m =>m.ProductModule)

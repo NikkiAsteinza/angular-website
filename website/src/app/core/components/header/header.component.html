@@ -7,13 +7,43 @@
       <h1>Parte y reparte</h1>
     </a>
     <nav layout="row">
-      <li class="menu__item"><a [routerLink]="['products-list']" class="menu__item_link mat-typography">Carta</a></li>
-      <li class="menu__item"><a [routerLink]="['specialties']" class="menu__link mat-typography">Especial</a></li>
-      <li class="menu__item"><a [routerLink]="['about']" class="menu__link mat-typography">Conócenos</a></li>
-      <li class="menu__item"><a [routerLink]="['contact']" class="menu__link mat-typography">Contacto</a></li>
+      <li class="menu__item"><a 
+        [routerLink]="['']" 
+        [routerLinkActive]="['link--active']"
+        Para funcionar cuando pones directamente el componente con string vacio en el router
+        [routerLinkActiveOptions]="{exact:true}"
+        class="mat-typography menu__item_link">Home</a></li>
+      <li class="menu__item"><a 
+          [routerLink]="['products-list']"
+          [routerLinkActive]="['link--active']"
+          class="mat-typography menu__item_link">Carta</a></li>
+      <li class="menu__item"><a 
+          [routerLink]="['specialties']"
+          [routerLinkActive]="['link--active']"
+          class="mat-typography menu__link">Especial</a></li>
+      <li class="menu__item"><a 
+          [routerLink]="['about']"
+          [routerLinkActive]="['link--active']"
+          class="mat-typography menu__link">Conócenos</a></li>
+      <li class="menu__item"><a 
+          [routerLink]="['contact']"
+          [routerLinkActive]="['link--active']" class="menu__link mat-typography">Contacto</a></li>
     </nav>
     <button mat-icon-button class="example-icon hidden" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
   </mat-toolbar>
 </header>
+<!-- 
+<li class="menu__item"><a 
+  [routerLink]="['']" 
+  [routerLinkActive]="['link--active']"
+  class="mat-typography menu__item_link">Home</a></li> -->
+
+
+<!-- <li class="menu__item"><a 
+  [routerLink]="['']" 
+  [routerLinkActive]="['link--active']"
+  Para funcionar cuando pones directamente el componente con string vacio en el router
+  [routerLinkActiveOptions]="{exact:true}"
+  class="mat-typography menu__item_link">Home</a></li> -->
