@@ -41,7 +41,7 @@ const routes: Routes = [
     loadChildren: ()=> import('./pages/contact/contact.module').then(m =>m.ContactModule)
   },
   {
-    path: 'product/:id',
+    path: 'product',
     // component: ProductComponent
     // Para lazy load pero require de subrouting para indicar qué cargar de ese módulo.
     loadChildren: ()=> import('./pages/product/product.module').then(m =>m.ProductModule)
