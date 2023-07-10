@@ -21,8 +21,8 @@ import { ProductHoverDirective } from './components/product/directives/product-h
     CommonModule,
     MatIconModule
   ],
-  exports:[
-    ProductListComponent
-  ]
+  // exports:[
+  //   ProductListComponent
+  // ]
 })
 export class ProductListModule { }

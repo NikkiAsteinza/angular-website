@@ -13,8 +13,8 @@ import { SpecialtiesComponent } from '../specialties/specialties.component';
     CommonModule,
     SpecialtiesRoutingModule
   ],
-  exports:[
-    SpecialtiesComponent
-  ]
+  // exports:[
+  //   SpecialtiesComponent
+  // ]
 })
 export class SpecialtiesModule { }

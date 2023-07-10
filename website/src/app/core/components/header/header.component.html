@@ -5,10 +5,10 @@
       <h1 class="title">Parte y reparte</h1>
     </a>
     <nav layout="row">
-      <li class="menu__item"><a class="menu__item_link mat-typography">Carta</a></li>
-      <li class="menu__item"><a class="menu__link mat-typography">Especial</a></li>
-      <li class="menu__item"><a class="menu__link mat-typography">Conócenos</a></li>
-      <li class="menu__item"><a class="menu__link mat-typography">Contacto</a></li>
+      <li class="menu__item"><a [routerLink]="['products-list']" class="menu__item_link mat-typography">Carta</a></li>
+      <li class="menu__item"><a [routerLink]="['specialties']" class="menu__link mat-typography">Especial</a></li>
+      <li class="menu__item"><a [routerLink]="['about']" class="menu__link mat-typography">Conócenos</a></li>
+      <li class="menu__item"><a [routerLink]="['contact']" class="menu__link mat-typography">Contacto</a></li>
     </nav>
     <button mat-icon-button class="example-icon hidden" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>

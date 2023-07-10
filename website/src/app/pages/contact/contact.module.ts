@@ -13,8 +13,8 @@ import { ContactComponent } from '../contact/contact.component';
     CommonModule,
     ContactRoutingModule
   ],
-  exports:[
-    ContactComponent
-  ]
+  // exports:[
+  //   ContactComponent
+  // ]
 })
 export class ContactModule { }

@@ -13,8 +13,8 @@ import { PageNotFoundComponent } from './page-not-found.component';
     CommonModule,
     PageNotFoundRoutingModule
   ],
-  exports:[
-    PageNotFoundComponent
-  ]
+  // exports:[
+  //   PageNotFoundComponent
+  // ]
 })
 export class PageNotFoundModule { }

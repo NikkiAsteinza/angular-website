@@ -13,8 +13,9 @@ import { AboutUsComponent } from './about-us.component';
     CommonModule,
     AboutUsRoutingModule
   ],
-  exports:[
-    AboutUsComponent
-  ]
+  // No needed because of lazy load
+  // exports:[
+  //   AboutUsComponent
+  // ]
 })
 export class AboutUsModule { }

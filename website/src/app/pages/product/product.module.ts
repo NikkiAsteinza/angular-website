@@ -13,8 +13,8 @@ import { ProductComponent } from '../product/product.component';
     CommonModule,
     ProductRoutingModule
   ],
-  exports:[
-    ProductComponent
-  ]
+  // exports:[
+  //   ProductComponent
+  // ]
 })
 export class ProductModule { }

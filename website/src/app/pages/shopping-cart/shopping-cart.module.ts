@@ -13,8 +13,8 @@ import { ShoppingCartComponent } from './shopping-cart.component';
     CommonModule,
     ShoppingCartRoutingModule
   ],
-  exports:[
-    ShoppingCartComponent
-  ]
+  // exports:[
+  //   ShoppingCartComponent
+  // ]
 })
 export class ShoppingCartModule { }

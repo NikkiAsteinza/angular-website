@@ -13,8 +13,8 @@ import { HomeComponent } from './home.component';
     CommonModule,
     HomeRoutingModule
   ],
-  exports:[
-    HomeComponent
-  ]
+  // exports:[
+  //   HomeComponent
+  // ]
 })
 export class HomeModule { }

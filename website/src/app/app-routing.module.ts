@@ -1,13 +1,6 @@
+
 import { NgModule } from '@angular/core';
-import { ContactComponent } from './pages/contact/contact.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductListComponent } from './pages/product-list/product-list.component';
-import { HomeComponent } from './pages/home/home.component';
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { SpecialtiesComponent } from './pages/specialties/specialties.component';
-import { ProductComponent } from './pages/product/product.component';
-import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   {
@@ -22,36 +15,48 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    // component: HomeComponent
+    // Permite cargar un módulo bajo demanda (url)
+    loadChildren: ()=> import('./pages/home/home.module').then(m =>m.HomeModule)
   },
   {
     path: 'products-list',
-    component: ProductListComponent
+    // component: ProductListComponent
+    loadChildren: ()=> import('./pages/product-list/product-list.module').then(m =>m.ProductListModule)
   },
   {
     path: 'specialties',
-    component: SpecialtiesComponent
+    // component: SpecialtiesComponent
+    loadChildren: ()=> import('./pages/specialties/specialties.module').then(m =>m.SpecialtiesModule)
   },
   {
     path: 'about',
-    component: AboutUsComponent
+    // component: AboutUsComponent
+    loadChildren: ()=> import('./pages/about-us/about-us.module').then(m =>m.AboutUsModule)
   },
   {
     path: 'contact',
-    component: ContactComponent
+    // component: ContactComponent
+    loadChildren: ()=> import('./pages/contact/contact.module').then(m =>m.ContactModule)
   },
   {
     path: 'product',
-    component: ProductComponent
+    // component: ProductComponent
+    // Para lazy load pero require de subrouting para indicar qué cargar de ese módulo.
+    loadChildren: ()=> import('./pages/product/product.module').then(m =>m.ProductModule)
+
   },
   {
     path: 'shopping-cart',
-    component: ShoppingCartComponent
+    // component: ShoppingCartComponent
+    loadChildren: ()=> import('./pages/shopping-cart/shopping-cart.module').then(m =>m.ShoppingCartModule)
+
   },
   //Esto tiene que ser la última
   {
     path: '**',
-    component: PageNotFoundComponent
+    // component: PageNotFoundComponent
+    loadChildren: ()=> import('./pages/page-not-found/page-not-found.module').then(m =>m.PageNotFoundModule)
   }
 ];
 
