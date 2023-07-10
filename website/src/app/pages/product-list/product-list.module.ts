@@ -7,6 +7,7 @@ import { ProductAmmountComponent } from './components/shopping-cart/components/c
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { CartItemComponent } from './components/shopping-cart/components/cart-item/cart-item.component';
 import { ProductHoverDirective } from './components/product/directives/product-hover.directive';
+import { ProductListRoutingModule } from './product-list-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProductHoverDirective } from './components/product/directives/product-h
   ],
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    ProductListRoutingModule
   ],
   // exports:[
   //   ProductListComponent
