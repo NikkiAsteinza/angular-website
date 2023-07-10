@@ -4,7 +4,8 @@
         <app-product *ngFor="let product of products" [product]="product" (onAddProductFromList)="addProduct(product)">
         </app-product>
     </div>
-    <app-shopping-cart [products]="products"
+    <app-shopping-cart class="shopping-cart" 
+    [products]="products"
     (onRemoveProductFromCart)="removeProduct($event)"
     (onAddProductFromCart)="addProduct($event)">
     </app-shopping-cart>
