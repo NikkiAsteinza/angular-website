@@ -15,13 +15,13 @@ export class CartItemComponent {
   }
   public addProduct(){
     if(this.cartProduct){
-      console.log("add from cart: "+this.cartProduct.product.name);
+      console.log("add from cart item: "+this.cartProduct.product.name);
       this.onAddProductFromCartItem.emit(this.cartProduct); 
     }
   }
   public removeProduct(){
     if(this.cartProduct){
-      console.log("remove from cart: "+this.cartProduct.product.name);
+      console.log("remove from cart item: "+this.cartProduct.product.name);
       this.onRemoveProductFromCartItem.emit(this.cartProduct); 
     }
   }

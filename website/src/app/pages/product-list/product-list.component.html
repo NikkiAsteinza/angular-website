@@ -1,15 +1,11 @@
 <div>
-    <h2>Nuestros productos</h2>
-    <app-product 
-        *ngFor="let product of products"
-        [product] = "product"
-        (onAddProductFromList)="addProduct(product)"
-    >
-    </app-product>
-    <app-shopping-cart
-    [products] = "products"
-    (onAddProductFromCart)="addProduct($product)"
-    (onRemoveProductFromCart)="removeProduct($product)"
-    >
+    <h2 class="products-title  mat-typography">Nuestros productos</h2>
+    <div class="products-list">
+        <app-product *ngFor="let product of products" [product]="product" (onAddProductFromList)="addProduct(product)">
+        </app-product>
+    </div>
+    <app-shopping-cart [products]="products"
+    (onRemoveProductFromCart)="removeProduct($event)"
+    (onAddProductFromCart)="addProduct($event)">
     </app-shopping-cart>
 </div>

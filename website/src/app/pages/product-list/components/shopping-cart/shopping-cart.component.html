@@ -4,7 +4,7 @@
 <div *ngFor="let product of products">
     <div *ngIf="product.ammount > 0">
         <app-cart-item [cartProduct]="product"
-        (onRemoveFromCartItem)="removeProductFromCart"
-        (onAddFromCartItem)="addProductFromCart"></app-cart-item>
+        (onRemoveProductFromCartItem)="removeProductFromCart($event)"
+        (onAddProductFromCartItem)="addProductFromCart($event)"></app-cart-item>
     </div>
 </div>
