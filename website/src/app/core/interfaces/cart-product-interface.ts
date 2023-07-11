@@ -36,5 +36,5 @@ export interface CartProductI{
     instruct10: string | null;
     instruct11: string | null;
     instruct12: string | null;
-    // tips: string;
+    ammount: string;
 }
