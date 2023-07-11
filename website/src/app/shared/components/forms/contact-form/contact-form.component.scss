@@ -1,0 +1,13 @@
+.app-form{
+    width:650px;
+    box-sizing: border-box;
+    padding:20px 16px;
+    max-width: 100%;
+    background-color: white;
+    border:1px solid #090909;
+    border-radius:2px;
+    &__item{
+        width:100%;
+        margin-top:20px;
+    }
+}

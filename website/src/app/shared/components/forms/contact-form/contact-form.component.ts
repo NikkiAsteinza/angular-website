@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { productData } from 'src/app/core/mock-data/product-data';
 
 @Component({
-  selector: 'app-product-form',
-  templateUrl: './product-form.component.html',
-  styleUrls: ['./product-form.component.scss']
+  selector: 'app-contact-form',
+  templateUrl: './contact-form.component.html',
+  styleUrls: ['./contact-form.component.scss']
 })
-export class ProductFormComponent {
+export class ContactFormComponent {
   public hasFormError:boolean = false;
   public hasSuccess:boolean = false;
   public productFormGroup?:FormGroup;
@@ -18,33 +17,18 @@ export class ProductFormComponent {
       name:new FormControl(
         '',[Validators.required],
       ),
-      price:new FormControl(
-        '',[Validators.required,Validators.min(0)]
+      email:new FormControl(
+        '',[Validators.required,Validators.email]
       ),
       description:new FormControl(
         '',[Validators.required, Validators.maxLength(200)]
-      ),
-      image:new FormControl(
-        '',[Validators.required],
-      ),
-      stock:new FormControl(
-        '',[Validators.required, Validators.min(0)],
-      ),
-      id:new FormControl(
-        '',[Validators.required]
-      ),
+      )
     })
   }
   public handleProduct(){
     console.log(this.productFormGroup?.value);
     if(this.productFormGroup?.valid){
-      const productCopy = [...productData];
-      const greaterId = productCopy.sort((a,b)=>{
-        return parseInt(b.id,10)-parseInt(a.id,10);
-      })[0]?.id;
-      const newId = parseInt(greaterId,10+1).toString();
-      // this.productFormGroup.id = newId;
-      productData.push({...this.productFormGroup?.value, id:productCopy.length});
+    
       this.productFormGroup.reset();
       this.hasFormError = false;
       this.hasSuccess = true;
