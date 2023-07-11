@@ -1,12 +1,12 @@
 <div *ngIf="product" class="product" >
     <div class="product__container" appProductHover="product" [ngStyle]="{'background-color': (product.ammount > 0) ? '#73c7af' : 'white'}">
         <div>
-            <p class="product__name">{{product.product.name}}</p>
+            <p class="product__name">{{product.product.title}}</p>
             <p class="product__description">{{product.product.description}}</p>
-            <p class="product__price">{{product.product.price}}€</p>
+            <p class="product__price">{{product.product.category}}</p>
         </div>
         <div>
-            <img flex="100" src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/0A475B34-4E78-40D8-9F30-46223B7D77E7/Derivates/E55C7EA4-0E60-403F-B5DC-75EA358197BD.jpg" class="product__image"/>
+            <img flex="100" src={{product.product.image}} class="product__image"/>
             <button (click)="addProduct()"> Add To cart</button>
             <button (click)="navigateToDetail(product.product.id)"     target="_blank"> MoreInfo</button>
         </div>

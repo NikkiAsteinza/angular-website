@@ -2,8 +2,17 @@
     <app-page-header
         title="Nuestros productos"
     ></app-page-header>
+    <div>
+        <label for="cars">Filter by price</label>
+        <input type="number" [(ngModel)]="priceFilter"/>
+        <label for="cars">Filter by category</label>
+        <input type="number" [(ngModel)]="categoryFilter"/>
+    </div>
     <div class="products-list">
-        <app-product *ngFor="let product of products" [product]="product" (onAddProductFromList)="addProduct(product)">
+        <app-product
+            *ngFor="let product of products| orderbyPrice:priceFilter | showbyCategory:categoryFilter"
+            [product]="product"
+            (onAddProductFromList)="addProduct(product)">
         </app-product>
     </div>
     <app-shopping-cart class="shopping-cart" 

@@ -1,5 +1,5 @@
 <div *ngIf="product" >
-    <app-page-header title={{product.name}}></app-page-header>
+    <app-page-header title={{product.product.title}}></app-page-header>
     <div class="back">
         <button class="back__button" (click)="navigateToProductList()">
             volver</button>
@@ -7,16 +7,16 @@
     <div class="product">
         <div layout="flex" appproducthover="product">
             <div>
-                <img src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/0A475B34-4E78-40D8-9F30-46223B7D77E7/Derivates/E55C7EA4-0E60-403F-B5DC-75EA358197BD.jpg" class="product__image"/>
+                <img src={{product.product.description}} class="product__image"/>
                 <div>
-                    <p class="product__description">{{product.description}}</p>
-                    <p class="product__price">{{product.price}}€</p>
+                    <p class="product__description">{{product.product.description}}</p>
+                    <p class="product__price">{{product.product.category}}</p>
                 </div>
             </div>
             <div>
-                <button (click)="navigateToEditProduct(product.id)">
+                <button (click)="navigateToEditProduct(product.product.id)">
                     Editar</button>
-                <button (click)="navigateToDeleteProduct(product.id)">
+                <button (click)="navigateToDeleteProduct(product.product.id)">
                     Borrar</button>
     
             </div>

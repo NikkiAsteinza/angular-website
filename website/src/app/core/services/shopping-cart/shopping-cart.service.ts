@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, filter, map } from 'rxjs';
 import { CartProductI } from '../../interfaces/cart-product-interface';
@@ -14,24 +13,29 @@ export class ShoppingCartService {
     private productApiService : ProductsApiService
   ) {
   }
-  public getProducts(): Observable<CartProductI[]>{
-    return this.productApiService.getProducts()
-    .pipe(
-      map((apiProducts: ProductI[]) => apiProducts.map(
-        apiProduct => apiProduct as CartProductI
-        ))
-    )
+  public getProducts(): Observable<CartProductI[]> {
+    return this.productApiService.getProducts().pipe(
+      map((apiProducts: ProductI[]) => {
+        return apiProducts.map(apiProduct => {
+          const cartProduct: CartProductI = { ...apiProduct, product:apiProduct, ammount: 0 };
+          return cartProduct;
+        });
+      })
+    );
   }
 
-  public getProductById(id:number): Observable<CartProductI[]>{
+  public getProductById(id:number): Observable<CartProductI>{
     return this.productApiService.getProducts()
     .pipe(
       filter((apiProduct, index) => {
         return apiProduct[index].id == id
       }),
-      map((apiProducts: ProductI[]) => apiProducts.map(
-        apiProduct => apiProduct as CartProductI
-        ))
+      map((apiProducts: ProductI[]) => {
+        return apiProducts.map(apiProduct => {
+          const cartProduct: CartProductI = { ...apiProduct, product:apiProduct, ammount: 0 };
+          return cartProduct;
+        })[0];
+      })
     )
   }
 }
