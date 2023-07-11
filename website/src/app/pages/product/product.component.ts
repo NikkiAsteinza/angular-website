@@ -22,4 +22,13 @@ export class ProductComponent {
   public navigateToProductList(){
     this.router.navigate(['products-list']);
   }
+  public navigateToCreateProduct(){
+    this.router.navigate(['product','create']);
+  }
+  public navigateToEditProduct(id:string){
+    this.router.navigate(['product','edit',id]);
+  }
+  public navigateToDeleteProduct(id:string){
+    this.router.navigate(['product','delete',id]);
+  }
 }

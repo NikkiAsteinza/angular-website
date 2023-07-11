@@ -1,6 +1,20 @@
 .main-container{
-    padding:16px;
-    padding-top:120px;
-    height:calc(100% - 180px);
+    position: fixed;
+    top:85px;
+    left:0;
+    padding:16px 0;
+    height:calc(100% - 135px);
     overflow-y: hidden;
+    background-image: url("../assets/pattern.png");
+    background-repeat: repeat;
+    background-size: 350px 350px;
+    background-blend-mode: luminosity;
+    width: 100%;
+    box-sizing: border-box;
+}
+.full-width-container{
+    width:100%;
+}
+.text-right{
+    text-align: right;
 }

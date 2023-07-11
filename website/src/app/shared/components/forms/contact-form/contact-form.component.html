@@ -1,0 +1,44 @@
+<form
+class="app-form"
+*ngIf="productFormGroup"
+[formGroup]="productFormGroup"
+(submit)="handleProduct()"
+>
+  <p>
+    <mat-form-field class="app-form__item" appearance="outline">
+      <mat-label>Tu nombre</mat-label>
+      <input  type="text" matInput
+        placeholder="Ñam! ¿Cómo se llama la nueva tarta?"
+        formControlName="name">
+      <mat-error *ngIf="productFormGroup.controls['name'].invalid">{{getErrorMessage("name")}}</mat-error>
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>¿Cómo quieres que te llamemos?.</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="app-form__item" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput
+      type="email"
+      placeholder="Placeholder"
+      formControlName="email">
+      <mat-error *ngIf="productFormGroup.controls['email'].invalid">{{getErrorMessage("email")}}</mat-error>
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Tu dirección de correo electrónico habitual.</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="app-form__item" appearance="outline">
+      <mat-label>Tu mensaje</mat-label>
+      <textarea matInput
+        placeholder="Estamos deseando saber cómo es."
+        formControlName="description"></textarea>
+      <mat-error *ngIf="productFormGroup.controls['description'].invalid">{{getErrorMessage("description")}}</mat-error>
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>¿En qué te podemos ayudar?</mat-hint>
+    </mat-form-field>
+  </p>
+  <button type="submit">Crear</button>
+  <p class="control_error" *ngIf="hasFormError">Revisa el formulario, hay errores</p>
+  <p class="control_success" *ngIf="hasSuccess">Se han creado los datos</p>
+</form>

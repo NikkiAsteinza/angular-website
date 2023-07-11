@@ -1,5 +1,7 @@
 <div>
-    <h2 class="products-title  mat-typography">Nuestros productos</h2>
+    <app-page-header
+        title="Nuestros productos"
+    ></app-page-header>
     <div class="products-list">
         <app-product *ngFor="let product of products" [product]="product" (onAddProductFromList)="addProduct(product)">
         </app-product>

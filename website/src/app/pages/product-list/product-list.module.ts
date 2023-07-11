@@ -8,6 +8,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { CartItemComponent } from './components/shopping-cart/components/cart-item/cart-item.component';
 import { ProductHoverDirective } from './components/product/directives/product-hover.directive';
 import { ProductListRoutingModule } from './product-list-routing.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProductListRoutingModule } from './product-list-routing.module';
   imports: [
     CommonModule,
     MatIconModule,
-    ProductListRoutingModule
+    ProductListRoutingModule,
+    SharedModule
   ],
   // exports:[
   //   ProductListComponent
