@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-product',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-product.component.scss']
 })
 export class EditProductComponent {
-
+  public productId:string = "";
+  constructor(private activatedRoute: ActivatedRoute){
+    this.activatedRoute.params.subscribe((params)=>{
+      this.productId = params['id'];
+    })
+  }
 }

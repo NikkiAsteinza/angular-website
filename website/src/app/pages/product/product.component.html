@@ -1,15 +1,28 @@
-<div *ngIf="product" class="product" >
-    <div class="product__container" layout="flex"  appProductHover="product">
-        <div flex="80">
-            <p class="product__name">{{product.name}}</p>
-            <p class="product__description">{{product.description}}</p>
-            <p class="product__price">{{product.price}}€</p>
+<div *ngIf="product" >
+    <app-page-header title={{product.name}}></app-page-header>
+    <div class="back">
+        <button class="back__button" (click)="navigateToProductList">
+            volver</button>
+    </div>
+    <div class="product">
+        <div layout="flex" appproducthover="product">
+            <div>
+                <img src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/0A475B34-4E78-40D8-9F30-46223B7D77E7/Derivates/E55C7EA4-0E60-403F-B5DC-75EA358197BD.jpg" class="product__image"/>
+                <div>
+                    <p class="product__description">{{product.description}}</p>
+                    <p class="product__price">{{product.price}}€</p>
+                </div>
+            </div>
+            <div>
+                <button (click)="navigateToEditProduct(product.id)">
+                    Editar</button>
+                <button (click)="navigateToDeleteProduct(product.id)">
+                    Borrar</button>
+    
+            </div>
         </div>
-        <div class="product__right__column">
-            <img flex="100" src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/0A475B34-4E78-40D8-9F30-46223B7D77E7/Derivates/E55C7EA4-0E60-403F-B5DC-75EA358197BD.jpg" class="product__image"/>
-            <button 
-                (click)="navigateToProductList"
-            > Ir a la lista</button>
-        </div>
+    </div>
+    <div class="create">
+        <button (click)="navigateToCreateProduct()">Crear</button>
     </div>
 </div>

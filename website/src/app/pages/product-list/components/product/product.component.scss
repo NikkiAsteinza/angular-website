@@ -1,17 +1,18 @@
 .product{
-
+    display: flex;
     margin-bottom: 15px;
     border:1px solid #090909;
     border-radius:2px;
+    object-fit: fill;
     &__container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        object-fit: fill;
         padding:10px 20px;
         justify-content: space-around;
         &:hover{
             background-color: aquamarine;
         }
-    }
-    &__right__column {
-       text-align: center;
     }
     &__name {
         font-weight: bold;
@@ -27,7 +28,7 @@
     }
     &__image {
         display: block;
-        height: 100px;
+        height: 250px;
         border-radius: 10px;
     }
 }

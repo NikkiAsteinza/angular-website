@@ -1,4 +1,3 @@
-import { ProductComponent } from "../../pages/product-list/components/product/product.component";
 import { ProductI } from "../interfaces/product-interface";
 
 export const productData : ProductI[]= [

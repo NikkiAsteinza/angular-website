@@ -1,18 +1,15 @@
-.products-title{
-    position:fixed;
-    top: 50px;
-    height:35px;
-    left:0;
+app-product-list{
     width:100%;
-    font-weight: 400;
-    background-color: aquamarine;
-    font-size: 1rem;
-    text-align: center;
-    margin:0;
 }
 .products-list{
+    flex-grow:ceil($number: 100%);
     height: calc(100vh - 220px);
-    overflow-y: scroll;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding:0 16px;
 }
 .shopping-cart{
     position:fixed;

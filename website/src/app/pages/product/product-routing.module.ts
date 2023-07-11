@@ -6,7 +6,6 @@ import { DeleteProductComponent } from './delete-product/delete-product.componen
 import { EditProductComponent } from './edit-product/edit-product.component';
 
 const routes: Routes = [
-
   {
     path: 'show/:id',
     pathMatch: 'full',
@@ -18,12 +17,12 @@ const routes: Routes = [
     component:CreateProductComponent
   },
   {
-    path: 'delete',
+    path: 'delete/:id',
     pathMatch: 'full',
     component:DeleteProductComponent
   },
   {
-    path: ':id/edit',
+    path: 'edit/:id',
     pathMatch: 'full',
     component:EditProductComponent
   },

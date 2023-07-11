@@ -1,0 +1,54 @@
+.back{
+    padding: 16px;
+    text-align: right;
+
+    &__button{
+        background-color: lightskyblue;
+        border:1px solid black;
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: font-weight 0.2s;
+        &:hover{
+            background-color: rgb(63, 230, 252);
+        }
+    }
+}
+.product{
+    background-color: white;
+    width: 800px;
+    max-width: 90%;
+    margin: 0 5%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    border:1px solid #090909;
+    border-radius:2px;
+    padding:16px;
+    &__container {
+        padding:10px 20px;
+        justify-content: space-around;
+        &:hover{
+            background-color: aquamarine;
+        }
+    }
+    &__right__column {
+       text-align: center;
+    }
+    &__name {
+        font-weight: bold;
+    }
+    &__button {
+        border:none;
+        padding:8px;
+
+        &--remove {
+            background-color: salmon;
+            font-weight: bold;
+        }
+    }
+    &__image {
+        display: block;
+        width: 100%;
+    }
+}

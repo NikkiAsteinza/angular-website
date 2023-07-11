@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SpecialtiesRoutingModule } from './specialties-routing.module';
 import { SpecialtiesComponent } from './specialties.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { SpecialtiesComponent } from './specialties.component';
   ],
   imports: [
     CommonModule,
-    SpecialtiesRoutingModule
+    SpecialtiesRoutingModule,
+    SharedModule
   ],
   // exports:[
   //   SpecialtiesComponent
