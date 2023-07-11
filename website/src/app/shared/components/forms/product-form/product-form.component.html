@@ -1,6 +1,6 @@
   <form
   class="app-form"
-  *ngIf="productFormGroup"
+  *ngIf="productFormGroup && !hasSuccess"
   [formGroup]="productFormGroup"
   (submit)="handleProduct()"
   >
@@ -50,19 +50,25 @@
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
     </p>
-    <p>
+    <p >
       <mat-form-field class="app-form__item" appearance="outline">
         <mat-label>Imagen</mat-label>
         <input matInput
           type="url"
           placeholder="Placeholder"
           formControlName="image">
-          <mat-error *ngIf="productFormGroup.controls['image'].invalid">{{getErrorMessage("image")}}</mat-error>
+          <mat-error *ngIf="productFormGroup.controls['image'].invalid">
+            {{getErrorMessage("image")}}</mat-error>
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
     </p>
     <button type="submit">Crear</button>
-    <p class="control_error" *ngIf="hasFormError">Revisa el formulario, hay errores</p>
-    <p class="control_success" *ngIf="hasSuccess">Se han creado los datos</p>
+
   </form>
+  <p class="control_error" *ngIf="hasFormError">Revisa el formulario, hay errores</p>
+  <div *ngIf="hasSuccess">
+    <p class="control_success">Se han creado los datos</p>
+    <button (click)="onBackToProductClicked()">Crear otro producto</button>
+    <button (click)="onBackToProductClicked()">Volver al producto</button>
+  </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { productData } from 'src/app/core/mock-data/product-data';
 
 @Component({
@@ -11,7 +12,9 @@ export class ProductFormComponent {
   public hasFormError:boolean = false;
   public hasSuccess:boolean = false;
   public productFormGroup?:FormGroup;
+  public productId:string ="";
   constructor(
+    private router:Router,
     private formBuilder:FormBuilder
   ){
     this.productFormGroup= this.formBuilder.group({
@@ -29,10 +32,7 @@ export class ProductFormComponent {
       ),
       stock:new FormControl(
         '',[Validators.required, Validators.min(0)],
-      ),
-      id:new FormControl(
-        '',[Validators.required]
-      ),
+      )
     })
   }
   public handleProduct(){
@@ -43,17 +43,27 @@ export class ProductFormComponent {
         return parseInt(b.id,10)-parseInt(a.id,10);
       })[0]?.id;
       const newId = parseInt(greaterId,10+1).toString();
-      // this.productFormGroup.id = newId;
-      productData.push({...this.productFormGroup?.value, id:productCopy.length});
-      this.productFormGroup.reset();
+      this.productId = newId;
+      productData.push({...this.productFormGroup?.value, id:newId});
+
       this.hasFormError = false;
       this.hasSuccess = true;
+      this.productFormGroup?.reset();
     }else{
       console.log(this.productFormGroup?.errors);
       console.log(this.productFormGroup?.value);
       this.hasFormError = true;
     }
 
+  }
+  public onCreateOtherClicked(){
+      this.hasFormError = false;
+      this.hasSuccess = true;
+      this.productId = "";
+      this.productFormGroup?.reset();
+  }
+  public onBackToProductClicked(){
+    this.router.navigate(['product',this.productId]);
   }
   getErrorMessage(controlName:string) {
     if (this.productFormGroup?.controls[controlName].hasError('required')) {
