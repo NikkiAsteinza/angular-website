@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProductI } from 'src/app/core/interfaces/product-interface';
 import { productData } from 'src/app/core/mock-data/product-data';
 
 @Component({
@@ -9,6 +10,7 @@ import { productData } from 'src/app/core/mock-data/product-data';
   styleUrls: ['./product-form.component.scss']
 })
 export class ProductFormComponent {
+  @Input() public productI?:ProductI;
   public hasFormError:boolean = false;
   public hasSuccess:boolean = false;
   public productFormGroup?:FormGroup;
@@ -19,42 +21,46 @@ export class ProductFormComponent {
   ){
     this.productFormGroup= this.formBuilder.group({
       name:new FormControl(
-        '',[Validators.required],
+        this.productI?.name || '',[Validators.required],
       ),
       price:new FormControl(
-        '',[Validators.required,Validators.min(0)]
+        this.productI?.price || '',[Validators.required,Validators.min(0)]
       ),
       description:new FormControl(
-        '',[Validators.required, Validators.maxLength(200)]
+        this.productI?.description || '',[Validators.required, Validators.maxLength(200)]
       ),
       image:new FormControl(
-        '',[Validators.required],
+        this.productI?.image || '',[Validators.required],
       ),
       stock:new FormControl(
-        '',[Validators.required, Validators.min(0)],
+        this.productI?.stock || '',[Validators.required, Validators.min(0)],
       )
     })
   }
   public handleProduct(){
-    console.log(this.productFormGroup?.value);
-    if(this.productFormGroup?.valid){
-      const productCopy = [...productData];
-      const greaterId = productCopy.sort((a,b)=>{
-        return parseInt(b.id,10)-parseInt(a.id,10);
-      })[0]?.id;
-      const newId = parseInt(greaterId,10+1).toString();
-      this.productId = newId;
-      productData.push({...this.productFormGroup?.value, id:newId});
+    if(this.productI){
 
-      this.hasFormError = false;
-      this.hasSuccess = true;
-      this.productFormGroup?.reset();
-    }else{
-      console.log(this.productFormGroup?.errors);
-      console.log(this.productFormGroup?.value);
-      this.hasFormError = true;
     }
-
+    else{
+      console.log(this.productFormGroup?.value);
+      if(this.productFormGroup?.valid){
+        const productCopy = [...productData];
+        const greaterId = productCopy.sort((a,b)=>{
+          return parseInt(b.id,10)-parseInt(a.id,10);
+        })[0]?.id;
+        const newId = parseInt(greaterId,10+1).toString();
+        this.productId = newId;
+        productData.push({...this.productFormGroup?.value, id:newId});
+  
+        this.hasFormError = false;
+        this.hasSuccess = true;
+        this.productFormGroup?.reset();
+      }else{
+        console.log(this.productFormGroup?.errors);
+        console.log(this.productFormGroup?.value);
+        this.hasFormError = true;
+      }
+    }
   }
   public onCreateOtherClicked(){
       this.hasFormError = false;
