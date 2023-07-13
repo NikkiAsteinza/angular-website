@@ -3,6 +3,7 @@
     text-align: right;
 
     &__button{
+        position:sticky;
         background-color: lightskyblue;
         border:1px solid black;
         border-radius: 5px;
@@ -15,10 +16,12 @@
         }
     }
 }
+.product-container{
+    height:100%;
+}
 .product{
     background-color: white;
-    width: 800px;
-    max-width: 90%;
+    width: 90%;
     margin: 0 5%;
     box-sizing: border-box;
     margin-bottom: 15px;

@@ -1,14 +1,18 @@
-<div *ngIf="product" class="product" >
-    <div class="product__container" appProductHover="product" [ngStyle]="{'background-color': (product.ammount > 0) ? '#73c7af' : 'white'}">
-        <div>
-            <p class="product__name">{{product.product.title}}</p>
-            <p class="product__description">{{product.product.description}}</p>
-            <p class="product__price">{{product.product.category}}</p>
-        </div>
-        <div>
-            <img flex="100" src={{product.product.image}} class="product__image"/>
-            <button (click)="addProduct()"> Add To cart</button>
-            <button (click)="navigateToDetail(product.product.id)"     target="_blank"> MoreInfo</button>
-        </div>
+<div *ngIf="product" class="product">
+    <div class="product__container" appProductHover="product"
+        [ngStyle]="{'background-color': (product.ammount > 0) ? '#73c7af' : 'white'}">
+            <div>
+                <div>
+                    <img flex="100" src={{product.product.image}} class="product__image" />
+                    <p class="product__name">{{product.product.title}}</p>
+                    <p class="product__description">{{product.product.description}}</p>
+                    <p class="product__price">{{product.product.category}}</p>
+                </div>
+                <div>
+                    <button (click)="addProduct()"> Add To cart</button>
+                    <button (click)="navigateToDetail(product.product.id)" target="_blank"> MoreInfo</button>
+                </div>
+            </div>
+
     </div>
 </div>

@@ -1,13 +1,17 @@
+app-product{
+    width:20%;
+}
 .product{
     display: flex;
     margin-bottom: 15px;
     border:1px solid #090909;
     border-radius:2px;
-    object-fit: fill;
+    height: 90%;
+    box-sizing: border-box;
+    align-self: flex-start;
     &__container {
         display: grid;
-        grid-template-columns: 50% 50%;
-        object-fit: fill;
+        grid-template-columns: 450px;
         padding:10px 20px;
         justify-content: space-around;
         &:hover{
@@ -28,7 +32,8 @@
     }
     &__image {
         display: block;
-        height: 250px;
+        width: 50%;
+        margin: 0 auto;
         border-radius: 10px;
     }
 }

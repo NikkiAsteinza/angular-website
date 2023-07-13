@@ -11,6 +11,7 @@ export class ProductListComponent implements OnInit {
   @Output() products = new Array<CartProductI>;
   public priceFilter :number = -1;
   public categoryFilter :number = -1;
+  public showCart : boolean  = false;
   constructor(
     private shoppingApiService :ShoppingCartService
   ){
@@ -58,5 +59,9 @@ export class ProductListComponent implements OnInit {
     else if (productToRemove){
       productToRemove.ammount -= 1
     }
+  }
+  public toggleCart(){
+    this.showCart = !this.showCart;
+    console.log("toggle-cart:"+this.showCart);
   }
 }

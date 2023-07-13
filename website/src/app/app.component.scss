@@ -1,9 +1,10 @@
 .main-container{
     position: fixed;
-    top:95px;
+    top:50px;
     left:0;
     padding:16px 0;
-    height:calc(100% - 135px);
+    padding-top: 24px;
+    height:calc(100% - 60px);
     overflow-y: hidden;
     background-image: url("../assets/pattern.png");
     background-repeat: repeat;
@@ -11,4 +12,10 @@
     background-blend-mode: luminosity;
     width: 100%;
     box-sizing: border-box;
+    padding-top:80px;
 }
+
+.hidden{
+    display:none;
+}
+
