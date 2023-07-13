@@ -14,26 +14,23 @@ export class ProductFormComponent {
   public hasFormError:boolean = false;
   public hasSuccess:boolean = false;
   public productFormGroup?:FormGroup;
-  public productId:string ="";
+  public productId:number =0
   constructor(
     private router:Router,
     private formBuilder:FormBuilder
   ){
     this.productFormGroup= this.formBuilder.group({
-      name:new FormControl(
-        this.productI?.name || '',[Validators.required],
+      title:new FormControl(
+        this.productI?.title || '',[Validators.required],
       ),
-      price:new FormControl(
-        this.productI?.price || '',[Validators.required,Validators.min(0)]
+      category:new FormControl(
+        this.productI?.category || '',[Validators.required] //Validators.min(0)
       ),
       description:new FormControl(
         this.productI?.description || '',[Validators.required, Validators.maxLength(200)]
       ),
       image:new FormControl(
         this.productI?.image || '',[Validators.required],
-      ),
-      stock:new FormControl(
-        this.productI?.stock || '',[Validators.required, Validators.min(0)],
       )
     })
   }
@@ -44,13 +41,13 @@ export class ProductFormComponent {
     else{
       console.log(this.productFormGroup?.value);
       if(this.productFormGroup?.valid){
-        const productCopy = [...productData];
-        const greaterId = productCopy.sort((a,b)=>{
-          return parseInt(b.id,10)-parseInt(a.id,10);
-        })[0]?.id;
-        const newId = parseInt(greaterId,10+1).toString();
-        this.productId = newId;
-        productData.push({...this.productFormGroup?.value, id:newId});
+      //   const productCopy = [...productData];
+      //   const greaterId = productCopy.sort((a,b)=>{
+      //     return parseInt(b.id,10)-parseInt(a.id,10);
+      //   })[0]?.id;
+      //   const newId = parseInt(greaterId,10+1).toString();
+      //   this.productId = newId;
+      //   productData.push({...this.productFormGroup?.value, id:newId});
   
         this.hasFormError = false;
         this.hasSuccess = true;
@@ -65,7 +62,7 @@ export class ProductFormComponent {
   public onCreateOtherClicked(){
       this.hasFormError = false;
       this.hasSuccess = true;
-      this.productId = "";
+      this.productId = 0;
       this.productFormGroup?.reset();
   }
   public onBackToProductClicked(){

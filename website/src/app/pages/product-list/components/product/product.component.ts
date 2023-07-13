@@ -20,7 +20,7 @@ export class ProductComponent implements OnInit {
   public addProduct(){
     this.onAddProductFromList.emit(); 
   }
-  public navigateToDetail(id:string){
+  public navigateToDetail(id:number){
     this.router.navigate(['product','show',id]);
   }
 }

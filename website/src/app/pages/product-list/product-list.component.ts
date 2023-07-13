@@ -1,6 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { productData } from 'src/app/core/mock-data/product-data';
 import { CartProductI } from 'src/app/core/interfaces/cart-product-interface';
+import { ShoppingCartService } from 'src/app/core/services/shopping-cart/shopping-cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,26 +9,28 @@ import { CartProductI } from 'src/app/core/interfaces/cart-product-interface';
 })
 export class ProductListComponent implements OnInit {
   @Output() products = new Array<CartProductI>;
-
-  private productsData;
-
-  constructor(){
+  public priceFilter :number = -1;
+  public categoryFilter :number = -1;
+  constructor(
+    private shoppingApiService :ShoppingCartService
+  ){
     this.products = new Array<CartProductI>;
-    this.productsData = productData; 
   }
 
   ngOnInit(): void {
-    this.productsData.forEach(data => {
-      const cartProduct : CartProductI = {
-        product:data,
-        ammount:0
-      };
-      this.products.push(cartProduct)
-    });
+    
+    this.shoppingApiService.getProducts().subscribe((result)=>{
+      result.forEach(data => {
+        this.products.push(data)
+      });
+      console.log("Mapped products");
+      console.log(this.products);
+    })
+    
   }
 
   public addProduct(cartProduct:CartProductI){
-    console.log("add product"+cartProduct.product.name)
+    console.log("add product"+cartProduct.product.title)
     if(this.products.includes(cartProduct))
     {
       const existingProduct = this.products.find(
@@ -45,7 +47,7 @@ export class ProductListComponent implements OnInit {
     }
   }
   public removeProduct(cartProduct:CartProductI){
-    console.log("remove product"+cartProduct.product.name)
+    console.log("remove product"+cartProduct.product.title)
     const productToRemove = this.products.find(product=>product === cartProduct);
 
     if (productToRemove && productToRemove.ammount == 1) {

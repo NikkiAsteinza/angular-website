@@ -8,12 +8,17 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule, MatHint} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactFormComponent } from './components/forms/contact-form/contact-form.component';
+import { OrderbyPricePipe } from './pipes/orderby-price/orderby-price.pipe';
+import { ShowbyCategoryPipe } from './pipes/showby-category/showby-category.pipe';
 
 @NgModule({
   declarations: [
     ProductFormComponent,
     PageHeaderComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    ShowbyCategoryPipe,
+    OrderbyPricePipe,
+    ShowbyCategoryPipe
   ],
   imports: [
     CommonModule,
@@ -25,7 +30,9 @@ import { ContactFormComponent } from './components/forms/contact-form/contact-fo
   exports:[
     ProductFormComponent,
     ContactFormComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
+    OrderbyPricePipe,
+    ShowbyCategoryPipe
   ]
 })
 export class SharedModule { }
