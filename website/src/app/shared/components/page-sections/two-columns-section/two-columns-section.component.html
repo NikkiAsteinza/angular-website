@@ -1,1 +1,21 @@
-<p>two-columns-section works!</p>
+<div class="full-width-container bg-primary">
+    <mat-grid-list cols="2" rowHeight="2:2">
+        <mat-grid-tile *ngIf="imagePosition === 'Left' || imagePosition === 'left'">
+            <img src={{imageUrl}} />
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="two-colums-section-content">
+                <h3 class="two-colums-section-content__title">{{title}}</h3>
+                <p>{{description}}</p>
+                <app-button
+                    title="buttonText"
+                    url="buttonUrl"
+                ></app-button>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="imagePosition === 'Right' || imagePosition === 'right'">
+            <img src={{imageUrl}} />
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+</div>

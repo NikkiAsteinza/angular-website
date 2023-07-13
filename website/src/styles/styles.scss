@@ -4,3 +4,22 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.full-width-container{
+    width:90%;
+    margin-left: 5%;
+    border-radius: 5px;
+    border:1px solid black;
+}
+.text-right{
+    text-align: right;
+}
+.bg-primary{
+    background-color: white;
+}
+.first-section{
+    margin-top:60px;
+}
+.y-scrollable{
+    overflow-y: scroll;
+    height: 100%;
+}
