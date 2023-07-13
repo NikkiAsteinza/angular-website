@@ -1,6 +1,6 @@
 .main-container{
     position: fixed;
-    top:85px;
+    top:95px;
     left:0;
     padding:16px 0;
     height:calc(100% - 135px);
@@ -11,10 +11,4 @@
     background-blend-mode: luminosity;
     width: 100%;
     box-sizing: border-box;
-}
-.full-width-container{
-    width:100%;
-}
-.text-right{
-    text-align: right;
 }

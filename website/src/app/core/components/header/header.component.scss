@@ -30,18 +30,23 @@ mat-toolbar {
         margin: 0px 10px;
         text-decoration: none !important;
         &__link {
+            color:#222;
+            display: inline-block;
+            padding:5px 8px;
+            padding-bottom: 0;
             text-decoration: none;
             cursor: pointer;
+            border-bottom:4px dotted black;
 
             &:hover {
-                color: rgb(0, 0, 0);
+                border-bottom:4px dotted turquoise;
             }
         }
     }
 }
 .link {
     &--active{
-        background-color: turquoise;
+        border-bottom:4px solid turquoise;
     }
 
 }
