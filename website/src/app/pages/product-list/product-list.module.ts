@@ -9,6 +9,7 @@ import { CartItemComponent } from './components/shopping-cart/components/cart-it
 import { ProductHoverDirective } from './components/product/directives/product-hover.directive';
 import { ProductListRoutingModule } from './product-list-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     MatIconModule,
     ProductListRoutingModule,
+    FormsModule,
     SharedModule
   ],
   // exports:[
