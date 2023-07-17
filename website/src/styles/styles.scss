@@ -14,6 +14,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .text-right{
     text-align: right;
 }
+.button{
+    padding:5px;
+    border:1px dotted black;
+    margin:0 15px;
+    text-transform: uppercase;
+    background-color: lightseagreen;
+    &:hover{
+        background-color: turquoise;
+        border: 1px solid black;
+    }
+}
 .bg-primary{
     background-color: white;
 }

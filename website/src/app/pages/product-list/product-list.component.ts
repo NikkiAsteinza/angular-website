@@ -22,7 +22,7 @@ export class ProductListComponent implements OnInit {
     
     this.shoppingApiService.getProducts().subscribe((result)=>{
       result.forEach(data => {
-        this.products.push(data)
+          this.products.push(data)
       });
       console.log("Mapped products");
       console.log(this.products);

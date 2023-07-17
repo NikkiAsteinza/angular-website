@@ -17,7 +17,7 @@ export class ShoppingCartService {
     return this.productApiService.getProducts().pipe(
       map((apiProducts: ProductI[]) => {
         return apiProducts.map(apiProduct => {
-          const cartProduct: CartProductI = { ...apiProduct, product:apiProduct, ammount: 0 };
+          const cartProduct: CartProductI = { ...apiProduct, product:apiProduct, ammount: 0, price: 10 };
           return cartProduct;
         });
       })
@@ -32,7 +32,7 @@ export class ShoppingCartService {
       }),
       map((apiProducts: ProductI[]) => {
         return apiProducts.map(apiProduct => {
-          const cartProduct: CartProductI = { ...apiProduct, product:apiProduct, ammount: 0 };
+          const cartProduct: CartProductI = { ...apiProduct, product:apiProduct, ammount: 0, price:10 };
           return cartProduct;
         })[0];
       })

@@ -1,5 +1,28 @@
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyArSI8upEdBI5jKeVFPDFZ06bFDJAKOX_o",
+      authDomain: "ecommerce-c1d6e.firebaseapp.com",
+      projectId: "ecommerce-c1d6e",
+      storageBucket: "ecommerce-c1d6e.appspot.com",
+      messagingSenderId: "1089374607792",
+      appId: "1:1089374607792:web:a7e3f9fe850a05a8219e75",
+      measurementId: "G-ZS344Z4HQH"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 <div>
-    <app-page-header title="Innovative Cannabis Recipes for Foodies"></app-page-header>
+    <app-page-header title="Innovative Cannabis Products for Foodies"></app-page-header>
     <app-page-subheader
         description="One of the main advantages of using cannabis in cooking is its ability to alleviate pain and reduce inflammation. This makes it an excellent ingredient for those who suffer from chronic conditions such as arthritis or multiple sclerosis. Additionally, cannabis can help to reduce anxiety and promote relaxation, making it a great addition to recipes for those who struggle with stress or insomnia."
         imageUrl="./assets/product-list/recipes.png">
@@ -12,7 +35,6 @@
     </div>
 
     <div class="products-list full-width-container">
-
         <app-product *ngFor="let product of products | showbyCategory:categoryFilter"
             [product]="product" (onAddProductFromList)="addProduct(product)">
         </app-product>
