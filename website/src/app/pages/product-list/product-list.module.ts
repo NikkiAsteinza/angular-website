@@ -25,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     ProductListRoutingModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    
   ],
   // exports:[
   //   ProductListComponent

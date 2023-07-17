@@ -1,3 +1,11 @@
-<app-page-header
-title="Nuestras especialidades"
-></app-page-header>
+<app-page-header title="Innovative Cannabis Recipes for Foodies"></app-page-header>
+<app-page-subheader
+    description="One of the main advantages of using cannabis in cooking is its ability to alleviate pain and reduce inflammation. This makes it an excellent ingredient for those who suffer from chronic conditions such as arthritis or multiple sclerosis. Additionally, cannabis can help to reduce anxiety and promote relaxation, making it a great addition to recipes for those who struggle with stress or insomnia."
+    imageUrl="./assets/product-list/recipes.png">
+</app-page-subheader>
+<div class="products-list full-width-container">
+    <app-recipe *ngFor="let recipe of recipes"
+        [data]="recipe">
+    </app-recipe>
+</div>
+

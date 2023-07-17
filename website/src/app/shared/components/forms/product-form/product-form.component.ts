@@ -20,8 +20,8 @@ export class ProductFormComponent {
     private formBuilder:FormBuilder
   ){
     this.productFormGroup= this.formBuilder.group({
-      title:new FormControl(
-        this.productI?.title || '',[Validators.required],
+      name:new FormControl(
+        this.productI?.name || '',[Validators.required],
       ),
       category:new FormControl(
         this.productI?.category || '',[Validators.required] //Validators.min(0)
@@ -31,6 +31,9 @@ export class ProductFormComponent {
       ),
       image:new FormControl(
         this.productI?.image || '',[Validators.required],
+      ),
+      price:new FormControl(
+        this.productI?.price || '',[Validators.required],
       )
     })
   }

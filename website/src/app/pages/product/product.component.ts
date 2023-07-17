@@ -20,7 +20,7 @@ export class ProductComponent {
        this.shoppingCartService.getProductById(params['id']).subscribe((data)=>{
         this.product = data;
         console.log("PRODUCT TO SHOW");
-        console.log(this.product?.product.title);
+        console.log(this.product?.product.name);
       });
     })
   }

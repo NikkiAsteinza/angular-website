@@ -6,8 +6,8 @@ import { CartProductI } from 'src/app/core/interfaces/cart-product-interface';
 })
 export class ShowbyCategoryPipe implements PipeTransform {
 
-  transform(products: CartProductI[], priceFilter: number): CartProductI[] {
-    if(!priceFilter || priceFilter === -1) return products;
+  transform(products: CartProductI[], priceFilter: string): CartProductI[] {
+    if(!priceFilter || priceFilter === "") return products;
     return products.filter(product=>product.product.category ===priceFilter);
   }
 }

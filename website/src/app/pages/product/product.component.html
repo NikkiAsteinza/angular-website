@@ -1,5 +1,5 @@
 <div *ngIf="product" class="y-scrollable product-container" >
-    <app-page-header title={{product.product.title}}></app-page-header>
+    <app-page-header title={{product.product.name}}></app-page-header>
     <div class="back">
         <button class="back__button" (click)="navigateToProductList()">
             volver</button>
@@ -9,7 +9,10 @@
             <div>
                 <img src={{product.product.image}} class="product__image"/>
                 <div>
-                    <h5 class="product__description">Description</h5>
+                    <p class="product__description">{{product.product.name}}</p>
+                    <p class="product__description">{{product.product.description}}</p>
+                    <p class="product__description">{{product.product.price}}</p>
+                    <!-- <h5 class="product__description">Description</h5>
                     <p class="product__description">{{product.product.description}}</p>
                     <h5 class="product__description">Instructions</h5>
                     <p class="product__description">{{product.product.instruct1}}</p>
@@ -24,7 +27,7 @@
                     <p class="product__description">{{product.product.instruct10}}</p>
                     <p class="product__description">{{product.product.instruct11}}</p>
                     <p class="product__description">{{product.product.instruct12}}</p>
-                    <p class="product__price">{{product.product.category}}</p>
+                    <p class="product__price">{{product.product.category}}</p> -->
                 </div>
             </div>
             <div>

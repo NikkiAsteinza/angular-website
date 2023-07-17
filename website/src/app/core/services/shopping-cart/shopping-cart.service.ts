@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, filter, map } from 'rxjs';
 import { CartProductI } from '../../interfaces/cart-product-interface';
-import { ProductsApiService } from '../products-api/products-api.service';
 import { ProductI } from '../../interfaces/product-interface';
+import { ProductsFirestoreService } from '../firestore-products/products-firestore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +10,14 @@ import { ProductI } from '../../interfaces/product-interface';
 export class ShoppingCartService {
 
   constructor(
-    private productApiService : ProductsApiService
+    private productFirestoreService : ProductsFirestoreService
   ) {
   }
   public getProducts(): Observable<CartProductI[]> {
-    return this.productApiService.getProducts().pipe(
+    return this.productFirestoreService.getAll().pipe(
       map((apiProducts: ProductI[]) => {
         return apiProducts.map(apiProduct => {
-          const cartProduct: CartProductI = { ...apiProduct, product:apiProduct, ammount: 0, price: 10 };
+          const cartProduct: CartProductI = { ...apiProduct, product:apiProduct, ammount: 0};
           return cartProduct;
         });
       })
@@ -25,14 +25,14 @@ export class ShoppingCartService {
   }
 
   public getProductById(id:number): Observable<CartProductI>{
-    return this.productApiService.getProducts()
+    return this.productFirestoreService.getAll()
     .pipe(
       filter((apiProduct, index) => {
         return apiProduct[index].id == id
       }),
       map((apiProducts: ProductI[]) => {
         return apiProducts.map(apiProduct => {
-          const cartProduct: CartProductI = { ...apiProduct, product:apiProduct, ammount: 0, price:10 };
+          const cartProduct: CartProductI = { ...apiProduct, product:apiProduct, ammount: 0 };
           return cartProduct;
         })[0];
       })

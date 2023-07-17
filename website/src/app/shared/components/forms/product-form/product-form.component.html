@@ -3,8 +3,8 @@
   <p>
     <mat-form-field class="app-form__item" appearance="outline">
       <mat-label>Nombre de la tarta</mat-label>
-      <input type="text" matInput placeholder="Ñam! ¿Cómo se llama la nueva tarta?" formControlName="title">
-      <mat-error *ngIf="productFormGroup.controls['title'].invalid">{{getErrorMessage("title")}}</mat-error>
+      <input type="text" matInput placeholder="Ñam! ¿Cómo se llama la nueva tarta?" formControlName="name">
+      <mat-error *ngIf="productFormGroup.controls['name'].invalid">{{getErrorMessage("name")}}</mat-error>
       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       <mat-hint>El nombre que verán tus clientes.</mat-hint>
     </mat-form-field>
@@ -21,7 +21,7 @@
   <p>
     <mat-form-field class="app-form__item" appearance="outline">
       <mat-label>Categoria</mat-label>
-      <input matInput type="number" placeholder="Placeholder" formControlName="category">
+      <input matInput type="text" placeholder="Placeholder" formControlName="category">
       <mat-error *ngIf="productFormGroup.controls['category'].invalid">{{getErrorMessage("category")}}</mat-error>
       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       <mat-hint>Hint</mat-hint>
@@ -33,6 +33,16 @@
       <mat-label>Imagen</mat-label>
       <input matInput type="url" placeholder="Placeholder" formControlName="image">
       <mat-error *ngIf="productFormGroup.controls['image'].invalid">
+        {{getErrorMessage("image")}}</mat-error>
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="app-form__item" appearance="outline">
+      <mat-label>Imagen</mat-label>
+      <input matInput type="number" placeholder="Placeholder" formControlName="price">
+      <mat-error *ngIf="productFormGroup.controls['price'].invalid">
         {{getErrorMessage("image")}}</mat-error>
       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       <mat-hint>Hint</mat-hint>

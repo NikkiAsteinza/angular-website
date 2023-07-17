@@ -1,0 +1,13 @@
+.products-list{
+    height: calc(100vh - 380px);
+    background-color: turquoise;
+    overflow-y: scroll;
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+
+}
