@@ -1,63 +1,48 @@
-  <form
-  class="app-form"
-  *ngIf="productFormGroup && !hasSuccess"
-  [formGroup]="productFormGroup"
-  (submit)="handleProduct()"
-  >
-    <p>
-      <mat-form-field class="app-form__item" appearance="outline">
-        <mat-label>Nombre de la tarta</mat-label>
-        <input  type="text" matInput
-          placeholder="Ñam! ¿Cómo se llama la nueva tarta?"
-          formControlName="title">
-        <mat-error *ngIf="productFormGroup.controls['title'].invalid">{{getErrorMessage("title")}}</mat-error>
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>El nombre que verán tus clientes.</mat-hint>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field class="app-form__item" appearance="outline">
-        <mat-label>Descripción de la tarta</mat-label>
-        <textarea matInput
-          placeholder="Estamos deseando saber cómo es."
-          formControlName="description"></textarea>
-        <mat-error *ngIf="productFormGroup.controls['description'].invalid">{{getErrorMessage("description")}}</mat-error>
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>La descripción disponible en la web.</mat-hint>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field class="app-form__item" appearance="outline">
-        <mat-label>Categoria</mat-label>
-        <input matInput
-          type="number"
-          placeholder="Placeholder"
-          formControlName="category">
-        <mat-error *ngIf="productFormGroup.controls['category'].invalid">{{getErrorMessage("category")}}</mat-error>
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
-    </p>
-    <p>
-    <p >
-      <mat-form-field class="app-form__item" appearance="outline">
-        <mat-label>Imagen</mat-label>
-        <input matInput
-          type="url"
-          placeholder="Placeholder"
-          formControlName="image">
-          <mat-error *ngIf="productFormGroup.controls['image'].invalid">
-            {{getErrorMessage("image")}}</mat-error>
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
-    </p>
-    <button type="submit">Crear</button>
-
-  </form>
-  <p class="control_error" *ngIf="hasFormError">Revisa el formulario, hay errores</p>
-  <div *ngIf="hasSuccess">
-    <p class="control_success">Se han creado los datos</p>
-    <button (click)="onBackToProductClicked()">Crear otro producto</button>
-    <button (click)="onBackToProductClicked()">Volver al producto</button>
-  </div>
+<form class="app-form" *ngIf="productFormGroup && !hasSuccess" [formGroup]="productFormGroup"
+  (submit)="handleProduct()">
+  <p>
+    <mat-form-field class="app-form__item" appearance="outline">
+      <mat-label>Nombre de la tarta</mat-label>
+      <input type="text" matInput placeholder="Ñam! ¿Cómo se llama la nueva tarta?" formControlName="title">
+      <mat-error *ngIf="productFormGroup.controls['title'].invalid">{{getErrorMessage("title")}}</mat-error>
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>El nombre que verán tus clientes.</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="app-form__item" appearance="outline">
+      <mat-label>Descripción de la tarta</mat-label>
+      <textarea matInput placeholder="Estamos deseando saber cómo es." formControlName="description"></textarea>
+      <mat-error *ngIf="productFormGroup.controls['description'].invalid">{{getErrorMessage("description")}}</mat-error>
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>La descripción disponible en la web.</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="app-form__item" appearance="outline">
+      <mat-label>Categoria</mat-label>
+      <input matInput type="number" placeholder="Placeholder" formControlName="category">
+      <mat-error *ngIf="productFormGroup.controls['category'].invalid">{{getErrorMessage("category")}}</mat-error>
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+  <p>
+    <mat-form-field class="app-form__item" appearance="outline">
+      <mat-label>Imagen</mat-label>
+      <input matInput type="url" placeholder="Placeholder" formControlName="image">
+      <mat-error *ngIf="productFormGroup.controls['image'].invalid">
+        {{getErrorMessage("image")}}</mat-error>
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <button type="submit">Crear</button>
+</form>
+<p class="control_error" *ngIf="hasFormError">Revisa el formulario, hay errores</p>
+<div *ngIf="hasSuccess">
+  <p class="control_success">Se han creado los datos</p>
+  <button (click)="onBackToProductClicked()">Crear otro producto</button>
+  <button (click)="onBackToProductClicked()">Volver al producto</button>
+</div>
