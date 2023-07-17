@@ -1,23 +1,29 @@
+
 <div>
-    <app-page-header
-        title="Nuestros productos"
-    ></app-page-header>
+    <app-page-header title="Innovative Cannabis Products for Foodies"></app-page-header>
+    <app-page-subheader
+        description="One of the main advantages of using cannabis in cooking is its ability to alleviate pain and reduce inflammation. This makes it an excellent ingredient for those who suffer from chronic conditions such as arthritis or multiple sclerosis. Additionally, cannabis can help to reduce anxiety and promote relaxation, making it a great addition to recipes for those who struggle with stress or insomnia."
+        imageUrl="./assets/product-list/recipes.png">
+    </app-page-subheader>
     <div>
-        <label for="cars">Filter by price</label>
-        <input type="number" [(ngModel)]="priceFilter"/>
+        <!-- <label for="cars">Filter by price</label>
+        <input type="number" [(ngModel)]="priceFilter" /> -->
         <label for="cars">Filter by category</label>
-        <input type="number" [(ngModel)]="categoryFilter"/>
+        <input type="string" [(ngModel)]="categoryFilter" />
     </div>
-    <div class="products-list">
-        <app-product
-            *ngFor="let product of products| orderbyPrice:priceFilter | showbyCategory:categoryFilter"
-            [product]="product"
-            (onAddProductFromList)="addProduct(product)">
+
+    <div class="products-list full-width-container">
+        <app-product *ngFor="let product of products | showbyCategory:categoryFilter"
+            [product]="product" (onAddProductFromList)="addProduct(product)">
         </app-product>
     </div>
-    <app-shopping-cart class="shopping-cart" 
-    [products]="products"
-    (onRemoveProductFromCart)="removeProduct($event)"
-    (onAddProductFromCart)="addProduct($event)">
+
+    <app-shopping-cart *ngIf="showCart" class="shopping-cart" [products]="products" (onRemoveProductFromCart)="removeProduct($event)"
+        (onAddProductFromCart)="addProduct($event)">
     </app-shopping-cart>
+    <button (click)="toggleCart()" mat-icon-button="mat-icon-button" class="shopping-cart__button"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon *ngIf="showCart">highlight_off</mat-icon>
+        <mat-icon *ngIf="!showCart">shopping_cart</mat-icon>
+    </button>
 </div>

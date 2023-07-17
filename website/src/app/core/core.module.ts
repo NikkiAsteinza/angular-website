@@ -12,7 +12,7 @@ import { ButtonComponent } from './components/button/button.component';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    ButtonComponent
+    ButtonComponent,
   ],
   imports: [
     CommonModule,

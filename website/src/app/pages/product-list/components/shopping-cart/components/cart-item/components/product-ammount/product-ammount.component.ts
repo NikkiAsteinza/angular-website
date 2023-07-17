@@ -13,14 +13,14 @@ export class ProductAmmountComponent {
 
   public removeProduct() {
     if(this.cartProduct){
-      console.log("remove from ammount: "+this.cartProduct.product.title)
+      console.log("remove from ammount: "+this.cartProduct.product.name)
       this.onRemoveFromAmmount.emit(this.cartProduct);
     }
 
   }
   public addProduct() {
     if(this.cartProduct){
-      console.log("add from ammount: "+this.cartProduct.product.title)
+      console.log("add from ammount: "+this.cartProduct.product.name)
       this.onAddFromAmmount.emit(this.cartProduct);
     }
   }

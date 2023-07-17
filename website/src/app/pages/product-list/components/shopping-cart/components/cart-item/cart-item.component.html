@@ -1,14 +1,10 @@
 <div *ngIf="cartProduct" class="cartProduct">
-
-    <div layout="row">
-        <p class="product__name">{{cartProduct.product.title}}
-            <app-product-ammount
-                [cartProduct]="cartProduct"
-                (onRemoveFromAmmount)="removeProduct()"
-                (onAddFromAmmount)="addProduct()"
-                ></app-product-ammount>
+        <p class="product__name">{{cartProduct.product.name}}
             <span>{{cartProduct.product.category}}</span>
         </p>
-    </div>
-
+        <app-product-ammount
+        [cartProduct]="cartProduct"
+        (onRemoveFromAmmount)="removeProduct()"
+        (onAddFromAmmount)="addProduct()"
+        ></app-product-ammount>
 </div>

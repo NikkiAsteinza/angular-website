@@ -1,0 +1,21 @@
+.subheader{
+    box-sizing: border-box;
+    position: relative;
+    z-index: 7777;
+    margin-top:0;
+    margin-left: 5%;
+    width: 90%;
+    height:150px;
+    display:flex;
+    border:1px solid black;
+    justify-content: space-between;
+    padding: 16px;
+    align-items: center;
+    &__description{
+        line-height:2rem;
+    }
+    &__image{
+        height:100%;
+        border-radius: 50%;
+    }
+}

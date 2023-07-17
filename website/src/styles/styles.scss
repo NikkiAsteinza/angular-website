@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .full-width-container{
     width:90%;
+    box-sizing: border-box;
     margin-left: 5%;
     margin-bottom:50px;
     border-radius: 5px;
@@ -14,13 +14,30 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .text-right{
     text-align: right;
 }
+.text-center{
+    text-align: center;
+}
+.button{
+    padding:5px;
+    border:1px dotted black;
+    margin:0 15px;
+    text-transform: uppercase;
+    background-color: lightseagreen;
+    &:hover{
+        background-color: turquoise;
+        border: 1px solid black;
+    }
+}
 .bg-primary{
     background-color: white;
 }
 .first-section{
-    margin-top:60px;
+    margin-top:20px;
 }
 .y-scrollable{
     overflow-y: scroll;
     height: 100%;
+}
+.y-scrollable::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
 }

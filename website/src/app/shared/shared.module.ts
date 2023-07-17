@@ -14,6 +14,7 @@ import { ShowbyCategoryPipe } from './pipes/showby-category/showby-category.pipe
 import { TwoColumnsSectionComponent } from './components/page-sections/two-columns-section/two-columns-section.component';
 import { OneColumnsSectionComponent } from './components/page-sections/one-columns-section/one-columns-section.component';
 import { CoreModule } from '../core/core.module';
+import { PageSubheaderComponent } from './components/page-subheader/page-subheader.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CoreModule } from '../core/core.module';
     OrderbyPricePipe,
     ShowbyCategoryPipe,
     TwoColumnsSectionComponent,
-    OneColumnsSectionComponent
+    OneColumnsSectionComponent,
+    PageSubheaderComponent
   ],
   imports: [
     CoreModule,
@@ -39,6 +41,7 @@ import { CoreModule } from '../core/core.module';
     ProductFormComponent,
     ContactFormComponent,
     PageHeaderComponent,
+    PageSubheaderComponent,
     OrderbyPricePipe,
     ShowbyCategoryPipe,
     TwoColumnsSectionComponent

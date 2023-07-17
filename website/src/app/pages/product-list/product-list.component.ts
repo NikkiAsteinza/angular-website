@@ -10,7 +10,8 @@ import { ShoppingCartService } from 'src/app/core/services/shopping-cart/shoppin
 export class ProductListComponent implements OnInit {
   @Output() products = new Array<CartProductI>;
   public priceFilter :number = -1;
-  public categoryFilter :number = -1;
+  public categoryFilter :string = "";
+  public showCart : boolean  = false;
   constructor(
     private shoppingApiService :ShoppingCartService
   ){
@@ -21,7 +22,7 @@ export class ProductListComponent implements OnInit {
     
     this.shoppingApiService.getProducts().subscribe((result)=>{
       result.forEach(data => {
-        this.products.push(data)
+          this.products.push(data)
       });
       console.log("Mapped products");
       console.log(this.products);
@@ -30,7 +31,7 @@ export class ProductListComponent implements OnInit {
   }
 
   public addProduct(cartProduct:CartProductI){
-    console.log("add product"+cartProduct.product.title)
+    console.log("add product"+cartProduct.product.name)
     if(this.products.includes(cartProduct))
     {
       const existingProduct = this.products.find(
@@ -47,7 +48,7 @@ export class ProductListComponent implements OnInit {
     }
   }
   public removeProduct(cartProduct:CartProductI){
-    console.log("remove product"+cartProduct.product.title)
+    console.log("remove product"+cartProduct.product.name)
     const productToRemove = this.products.find(product=>product === cartProduct);
 
     if (productToRemove && productToRemove.ammount == 1) {
@@ -58,5 +59,9 @@ export class ProductListComponent implements OnInit {
     else if (productToRemove){
       productToRemove.ammount -= 1
     }
+  }
+  public toggleCart(){
+    this.showCart = !this.showCart;
+    console.log("toggle-cart:"+this.showCart);
   }
 }

@@ -1,7 +1,5 @@
-<div class="shopping-cart-container">
-    <button mat-icon-button="mat-icon-button" class="shopping-cart-container__button" aria-label="Example icon-button with menu icon">
-        <mat-icon>shopping_cart</mat-icon>
-    </button>
+<div class="shopping-cart-container y-scrollable">
+    <h4 class="shopping-cart-container__title">Shopping cart</h4>
     <div class="shopping-cart-container__detail">
         <div *ngFor="let product of products">
             <div *ngIf="product.ammount > 0">
