@@ -20,7 +20,7 @@ export class ProductsFirestoreService {
   private productCollection: CollectionReference<DocumentData>;
 
   constructor(private readonly firestore: Firestore) {
-    this.productCollection = collection(this.firestore, 'products`');
+    this.productCollection = collection(this.firestore, 'products');
   }
 
   getAll() {

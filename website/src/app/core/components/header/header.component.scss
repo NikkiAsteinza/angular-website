@@ -25,6 +25,7 @@ mat-toolbar {
 }
 
 .menu {
+    display: flex;
     &__item {
         list-style: none;
         margin: 0px 10px;

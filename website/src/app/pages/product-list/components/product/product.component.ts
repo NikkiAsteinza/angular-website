@@ -21,6 +21,7 @@ export class ProductComponent implements OnInit {
     this.onAddProductFromList.emit(); 
   }
   public navigateToDetail(id:number){
-    this.router.navigate(['product','show',id.toString()]);
+    this.router.navigate(['product','show',id.toString()
+  ]);
   }
 }
