@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductI } from 'src/app/core/interfaces/product-interface';
@@ -10,34 +10,39 @@ import { ProductsFirestoreService } from 'src/app/core/services/firestore-produc
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss']
 })
-export class ProductFormComponent {
-  @Input() public productI?:ProductI;
-  public hasFormError:boolean = false;
-  public hasSuccess:boolean = false;
-  public productFormGroup?:FormGroup;
-  public productId:number =0
+export class ProductFormComponent implements OnChanges {
+  @Input() public productI?: ProductI;
+  public hasFormError: boolean = false;
+  public hasSuccess: boolean = false;
+  public productFormGroup?: FormGroup;
+  public productId: number = 0;
+
   constructor(
-    private router:Router,
-    private formBuilder:FormBuilder,
-    private productService:ProductsFirestoreService
-  ){
-    this.productFormGroup= this.formBuilder.group({
-      name:new FormControl(
-        this.productI?.name || '',[Validators.required],
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private productService: ProductsFirestoreService
+  ) {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log("Input Changes", changes);
+    if (changes["productI"] && this.productI) {
+      console.log("Product Received in Form:", this.productI);
+      this.buildForm();
+    }
+  }
+
+  private buildForm() {
+    console.log("Building Form with Product:", this.productI);
+    this.productFormGroup = this.formBuilder.group({
+      name: new FormControl(this.productI?.name || '', [Validators.required]),
+      category: new FormControl(this.productI?.category || '', [Validators.required]),
+      description: new FormControl(
+        this.productI?.description || '',
+        [Validators.required, Validators.maxLength(200)]
       ),
-      category:new FormControl(
-        this.productI?.category || '',[Validators.required] //Validators.min(0)
-      ),
-      description:new FormControl(
-        this.productI?.description || '',[Validators.required, Validators.maxLength(200)]
-      ),
-      image:new FormControl(
-        this.productI?.image || '',[Validators.required],
-      ),
-      price:new FormControl(
-        this.productI?.price || '',[Validators.required],
-      )
-    })
+      image: new FormControl(this.productI?.image || '', [Validators.required]),
+      price: new FormControl(this.productI?.price || '', [Validators.required]),
+    });
   }
   public handleProduct(){
     if(this.productI){
