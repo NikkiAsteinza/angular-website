@@ -1,8 +1,7 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { ProductI } from 'src/app/core/interfaces/product-interface';
-import { productData } from 'src/app/core/mock-data/product-data';
 import { ProductsFirestoreService } from 'src/app/core/services/firestore-products/products-firestore.service';
 
 @Component({
@@ -10,7 +9,7 @@ import { ProductsFirestoreService } from 'src/app/core/services/firestore-produc
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss']
 })
-export class ProductFormComponent implements OnChanges {
+export class ProductFormComponent implements OnInit,OnChanges {
   @Input() public productI?: ProductI;
   public hasFormError: boolean = false;
   public hasSuccess: boolean = false;
@@ -22,6 +21,9 @@ export class ProductFormComponent implements OnChanges {
     private formBuilder: FormBuilder,
     private productService: ProductsFirestoreService
   ) {}
+  ngOnInit(): void {
+    this.buildForm();
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     console.log("Input Changes", changes);
@@ -46,7 +48,17 @@ export class ProductFormComponent implements OnChanges {
   }
   public handleProduct(){
     if(this.productI){
-
+      if(this.productFormGroup?.valid){
+        this.productService.update(this.productFormGroup.value as ProductI)
+  
+        this.hasFormError = false;
+        this.hasSuccess = true;
+        this.productFormGroup?.reset();
+      }else{
+        console.log(this.productFormGroup?.errors);
+        console.log(this.productFormGroup?.value);
+        this.hasFormError = true;
+      }
     }
     else{
       console.log(this.productFormGroup?.value);
