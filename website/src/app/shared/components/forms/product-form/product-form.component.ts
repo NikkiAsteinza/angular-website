@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductI } from 'src/app/core/interfaces/product-interface';
 import { productData } from 'src/app/core/mock-data/product-data';
+import { ProductsFirestoreService } from 'src/app/core/services/firestore-products/products-firestore.service';
 
 @Component({
   selector: 'app-product-form',
@@ -17,7 +18,8 @@ export class ProductFormComponent {
   public productId:number =0
   constructor(
     private router:Router,
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    private productService:ProductsFirestoreService
   ){
     this.productFormGroup= this.formBuilder.group({
       name:new FormControl(
@@ -44,13 +46,7 @@ export class ProductFormComponent {
     else{
       console.log(this.productFormGroup?.value);
       if(this.productFormGroup?.valid){
-      //   const productCopy = [...productData];
-      //   const greaterId = productCopy.sort((a,b)=>{
-      //     return parseInt(b.id,10)-parseInt(a.id,10);
-      //   })[0]?.id;
-      //   const newId = parseInt(greaterId,10+1).toString();
-      //   this.productId = newId;
-      //   productData.push({...this.productFormGroup?.value, id:newId});
+        this.productService.create(this.productFormGroup.value)
   
         this.hasFormError = false;
         this.hasSuccess = true;

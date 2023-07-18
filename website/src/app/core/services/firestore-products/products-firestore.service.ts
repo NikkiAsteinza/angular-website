@@ -31,7 +31,7 @@ export class ProductsFirestoreService {
 
   get(id: string) {
     const productDocumentReference = doc(this.firestore, `products/${id}`);
-    return docData(productDocumentReference, { idField: 'id' });
+    return docData(productDocumentReference, { idField: 'id' }) as Observable<ProductI>;
   }
 
   create(product: ProductI) {
