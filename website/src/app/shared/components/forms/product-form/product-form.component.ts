@@ -25,7 +25,7 @@ export class ProductFormComponent implements OnInit, OnChanges {
   public hasFormError: boolean = false;
   public hasSuccess: boolean = false;
   public productFormGroup?: FormGroup;
-  public productId: number = 0;
+
   private isDataLoaded: boolean = false;
   constructor(
     private router: Router,
@@ -33,11 +33,12 @@ export class ProductFormComponent implements OnInit, OnChanges {
     private productService: ProductsFirestoreService
   ) {}
   ngOnInit(): void {
+    console.log('Build empty form', this.productI);
     this.buildForm();
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('Input Changes', changes);
+    // console.log('Input Changes', changes);
     if (changes['productI'] && this.productI && !this.isDataLoaded) {
       console.log('Product Received in Form:', this.productI);
       this.buildForm();
@@ -61,7 +62,7 @@ export class ProductFormComponent implements OnInit, OnChanges {
   public onCreateOtherClicked() {
     this.hasFormError = false;
     this.hasSuccess = true;
-    this.productId = 0;
+
     this.productFormGroup?.reset();
   }
   public onBackToProductClicked() {
@@ -83,7 +84,10 @@ export class ProductFormComponent implements OnInit, OnChanges {
 
   private editProduct() {
     if (this.productFormGroup?.valid) {
-      this.productService.update(this.productFormGroup.value);
+      const productData:ProductI = this.productFormGroup.value;
+      if(this.productI)
+        productData.id = this.productI.id; 
+      this.productService.update(productData);
       this.handleFormSuccess(true);
     } else {
       this.handleFormSuccess(false);
@@ -101,7 +105,7 @@ export class ProductFormComponent implements OnInit, OnChanges {
   }
 
   private buildForm() {
-    console.log('Building Form with Product:', this.productI);
+    console.log("hola");
     this.productFormGroup = this.formBuilder.group({
       name: new FormControl(this.productI?.name || '', [Validators.required]),
       category: new FormControl(this.productI?.category || '', [
