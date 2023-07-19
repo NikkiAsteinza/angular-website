@@ -21,7 +21,7 @@ export class EditProductComponent {
       this.firestoreService.get(productId).subscribe((data) => {
         this.product = data;
         this.loading = false; // Marcar como cargados los datos del producto
-        console.log("PRODUCT TO SHOW");
+        console.log("PRODUCT TO EDIT");
         console.log(this.product?.name);
       });
     });
