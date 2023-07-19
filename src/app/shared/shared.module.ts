@@ -12,9 +12,9 @@ import { ContactFormComponent } from './components/forms/contact-form/contact-fo
 import { OrderbyPricePipe } from './pipes/orderby-price/orderby-price.pipe';
 import { ShowbyCategoryPipe } from './pipes/showby-category/showby-category.pipe';
 import { TwoColumnsSectionComponent } from './components/page-sections/two-columns-section/two-columns-section.component';
-import { OneColumnsSectionComponent } from './components/page-sections/one-columns-section/one-columns-section.component';
 import { CoreModule } from '../core/core.module';
 import { PageSubheaderComponent } from './components/page-subheader/page-subheader.component';
+import { SectionComponent } from './components/page-sections/section/section.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,8 @@ import { PageSubheaderComponent } from './components/page-subheader/page-subhead
     OrderbyPricePipe,
     ShowbyCategoryPipe,
     TwoColumnsSectionComponent,
-    OneColumnsSectionComponent,
-    PageSubheaderComponent
+    PageSubheaderComponent,
+    SectionComponent
   ],
   imports: [
     CoreModule,
@@ -44,7 +44,8 @@ import { PageSubheaderComponent } from './components/page-subheader/page-subhead
     PageSubheaderComponent,
     OrderbyPricePipe,
     ShowbyCategoryPipe,
-    TwoColumnsSectionComponent
+    TwoColumnsSectionComponent,
+    SectionComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,11 @@
+<div class="full-width-container {{bgClass}}">
+    <div class="section__content">
+        <h2>{{title}}</h2>
+        <p>{{description}}</p>
+        <app-button
+        *ngIf="showButton"
+        text={{buttonText}}
+        url={{buttonUrl}}
+    ></app-button>
+    </div>
+</div>

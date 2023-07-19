@@ -7,10 +7,11 @@
     padding:10px 15px;
     text-decoration: none;
     background-color: turquoise;
-    margin:30px 15px;
+    margin:30px auto;
     text-transform: uppercase;
     color:#333;
     text-align: center;
+    max-width: 40%;
     
     &:hover{
         background-color:aquamarine;

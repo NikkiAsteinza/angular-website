@@ -3,7 +3,7 @@
     top:50px;
     left:0;
     padding:16px 0;
-    padding-top: 24px;
+    padding-top: 0;
     height:calc(100% - 60px);
     overflow-y: hidden;
     background-image: url("../assets/pattern.png");
@@ -12,7 +12,6 @@
     background-blend-mode: luminosity;
     width: 100%;
     box-sizing: border-box;
-    padding-top:80px;
 }
 
 .hidden{
