@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import { CartProductI } from 'src/app/core/interfaces/cart-product-interface';
+import { ProductI } from 'src/app/core/interfaces/product-interface';
+import { ProductsFirestoreService } from 'src/app/core/services/firestore-products/products-firestore.service';
 import { ShoppingCartService } from 'src/app/core/services/shopping-cart/shopping-cart.service';
 
 @Component({
@@ -9,18 +11,18 @@ import { ShoppingCartService } from 'src/app/core/services/shopping-cart/shoppin
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent {
-  public product?:CartProductI;
+  public product?:ProductI;
   constructor(
     //To nagivate
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private shoppingCartService :ShoppingCartService
+    private firestoreService :ProductsFirestoreService
   ){
     this.activatedRoute.params.subscribe((params)=>{
-       this.shoppingCartService.getProductById(params['id']).subscribe((data)=>{
+       this.firestoreService.get(params['id']).subscribe((data)=>{
         this.product = data;
         console.log("PRODUCT TO SHOW");
-        console.log(this.product?.product.name);
+        console.log(this.product?.name);
       });
     })
   }

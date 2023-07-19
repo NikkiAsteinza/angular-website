@@ -23,19 +23,4 @@ export class ShoppingCartService {
       })
     );
   }
-
-  public getProductById(id:number): Observable<CartProductI>{
-    return this.productFirestoreService.getAll()
-    .pipe(
-      filter((apiProduct, index) => {
-        return apiProduct[index].id == id
-      }),
-      map((apiProducts: ProductI[]) => {
-        return apiProducts.map(apiProduct => {
-          const cartProduct: CartProductI = { ...apiProduct, product:apiProduct, ammount: 0 };
-          return cartProduct;
-        })[0];
-      })
-    )
-  }
 }

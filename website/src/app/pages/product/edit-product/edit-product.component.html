@@ -1,1 +1,13 @@
-<app-product-form></app-product-form>
+<app-page-header
+title="Edit Product"
+></app-page-header>
+<!-- Muestra un mensaje de carga mientras se obtienen los datos del producto -->
+<div *ngIf="loading">
+    Loading...
+  </div>
+  
+  <!-- Muestra el formulario solo cuando los datos del producto están disponibles -->
+  <ng-container *ngIf="!loading">
+    <app-product-form [productI]="product"></app-product-form>
+  </ng-container>
+  
