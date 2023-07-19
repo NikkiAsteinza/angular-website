@@ -9,7 +9,5 @@ import { SectionComponent } from '../section/section.component';
 export class TwoColumnsSectionComponent extends SectionComponent {
 
   @Input() public imagePosition:string = "left";
-  @Input() public buttonText:string = "Button text from section";
-  @Input() public buttonUrl:string = "Button url from section";
   @Input() public imageUrl:string ="imageUrl";
 }
