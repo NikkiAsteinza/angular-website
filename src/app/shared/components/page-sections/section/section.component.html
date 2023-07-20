@@ -1,7 +1,9 @@
 <div class="full-width-container {{bgClass}}">
     <div class="section__content">
-        <h2>{{title}}</h2>
-        <p>{{description}}</p>
+        <app-section-header title={{title}}></app-section-header>
+        <app-section-description *ngIf="description"
+            description={{description}}>
+        </app-section-description>
         <app-button
         *ngIf="showButton"
         text={{buttonText}}

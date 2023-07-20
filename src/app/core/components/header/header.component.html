@@ -5,7 +5,7 @@
     >
       <h1>Canna Foodies</h1>
     </a>
-    <nav class="menu">
+    <nav class="menu" [ngClass]="{'mobile-menu': hideSideMenu === true}" >
       <li class="menu__item"><a 
         [routerLink]="['']" 
         [routerLinkActive]="['link--active']"
@@ -28,7 +28,7 @@
           [routerLink]="['contact']"
           [routerLinkActive]="['link--active']" class="menu__item__link mat-typography">Contact</a></li>
     </nav>
-    <button mat-icon-button class="example-icon hidden" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button [ngClass]="{'hidden': hideSideMenu === false}" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
   </mat-toolbar>

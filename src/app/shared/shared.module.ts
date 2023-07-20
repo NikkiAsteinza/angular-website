@@ -15,6 +15,9 @@ import { TwoColumnsSectionComponent } from './components/page-sections/two-colum
 import { CoreModule } from '../core/core.module';
 import { PageSubheaderComponent } from './components/page-subheader/page-subheader.component';
 import { SectionComponent } from './components/page-sections/section/section.component';
+import { SectionHeaderComponent } from './components/section-header/section-header.component';
+import { SectionDescriptionComponent } from './components/section-description/section-description.component';
+import { SectionImageComponent } from './components/section-image/section-image.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { SectionComponent } from './components/page-sections/section/section.com
     ShowbyCategoryPipe,
     TwoColumnsSectionComponent,
     PageSubheaderComponent,
-    SectionComponent
+    SectionComponent,
+    SectionHeaderComponent,
+    SectionDescriptionComponent,
+    SectionImageComponent
   ],
   imports: [
     CoreModule,

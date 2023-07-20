@@ -1,8 +1,35 @@
-.two-colums-section-content{
-    padding:16px;
-    &__title{
-        font-size: 3rem;
-        font-family: 'Fasthand', cursive;
-        line-height: 3rem;
+.section{
+
+    box-sizing: border-box;
+
+    &__image{
+        display: inline-block;
+        width: 100%;
+        border-radius: 50%;
     }
+}
+.section-content{
+    max-width: 70%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 40%;
+    align-items: center;
+
+}
+.section-content-left{
+    grid-template-columns: 40% auto;
+}
+.mobile{
+    grid-template-rows: auto auto auto;
+}
+.mobile-content{
+    max-width: 90%;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    justify-content: space-between;
+}
+
+.mobile-left{
+    grid-template-rows: 60% 40%;
+    grid-template-columns:  auto;
 }
